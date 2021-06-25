@@ -42,6 +42,13 @@
         gnome
       ];
 
+      hosts.kotwys-lap.modules = with suites; [
+        ./hosts/kotwys-lap.nix
+        grub
+        desktop
+        gnome
+      ];
+
       # Flake outputs
 
       nixosModules = { inherit (suites) kdeconnect; };

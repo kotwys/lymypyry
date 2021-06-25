@@ -35,5 +35,10 @@
     '';
   };
 
-  programs.starship.enable = true;
+  programs.starship = {
+    enable = true;
+    settings = {
+      battery.disabled = true;
+    };
+  };
 }
