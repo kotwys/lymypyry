@@ -20,10 +20,12 @@ L362, L360, L312, L310, L222, L220, L132, L130).
 configuration.
 
 ```nix
-services.kdeconnect = {
-  enable = true;
-  package = pkgs.kdeconnect; # also works with gsconnect
-};
+{
+  services.kdeconnect = {
+    enable = true;
+    package = pkgs.kdeconnect; # also works with gsconnect
+  };
+}
 ```
 
 [ewlsh/gnome-40]: https://github.com/ewlsh/dash-to-dock/tree/ewlsh/gnome-40
