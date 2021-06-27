@@ -41,6 +41,8 @@
 
   programs.fish.enable = true;
 
+  programs.ssh.askPassword = "";
+
   fonts = {
     fontconfig = {
       enable = true;
