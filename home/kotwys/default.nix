@@ -35,6 +35,28 @@
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
 
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      bbenoist.Nix
+      vscodevim.vim
+    ];
+    userSettings = {
+      "editor.fontFamily" = "Cascadia Code, monospace";
+      "editor.fontLigatures" = true;
+      "editor.fontSize" = 13;
+      "editor.minimap.enabled" = false;
+      "editor.smoothScrolling" = true;
+      "editor.cursorSmoothCaretAnimation" = true;
+
+      "editor.tabSize" = 2;
+
+      "emmet.includeLanguages" = {
+        nunjucks = "html";
+      };
+    };
+  };
+
   xdg.enable = true;
 
   home.stateVersion = "21.05";
