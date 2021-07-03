@@ -15,6 +15,34 @@
     enable = true;
     layout = "us,ru";
     xkbOptions = "grp:alt_shift_toggle,ctrl:swapcaps";
+    extraXkbOptions = {
+      typo.birman = {
+        include = [ "typo(base)" ];
+
+        keys.TLDE = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_grave" ];
+        keys.AE06 = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_circumflex" ];
+        keys.AE09 = [ "NoSymbol" "NoSymbol" "NoSymbol" "U2039" ];
+        keys.AE10 = [ "NoSymbol" "NoSymbol" "NoSymbol" "U203A" ];
+
+        keys.AD01 = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_breve" ];
+        keys.AD02 = [ "NoSymbol" "NoSymbol" "radical" "NoSymbol" ];
+        keys.AD04 = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_abovering" ];
+        keys.AD06 = [ "NoSymbol" "NoSymbol" "U0463" "U0462" ];
+        keys.AD07 = [ "NoSymbol" "NoSymbol" "U0475" "U0474" ];
+        keys.AD08 = [ "NoSymbol" "NoSymbol" "Ukrainian_i" "Ukrainian_I" ];
+        keys.AD09 = [ "NoSymbol" "NoSymbol" "U0473" "U0472" ];
+
+        keys.AC01 = [ "NoSymbol" "NoSymbol" "approxeq" "U2318" ];
+        keys.AC03 = [ "NoSymbol" "NoSymbol" "NoSymbol" "U2300" ];
+        keys.AC06 = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_doubleacute" ];
+        keys.AC10 = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_diaeresis" ];
+
+        keys.AB01 = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_cedilla" ];
+        keys.AB04 = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_caron" ];
+        keys.AB06 = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_tilde" ];
+        keys.AB10 = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_acute" ];
+      };
+    };
   };
 
   services.kdeconnect = { enable = true; };

@@ -2,6 +2,7 @@
 
 utils.lib.modulesFromList [
   ./modules/kdeconnect.nix
+  ./modules/extra-xkb-options.nix
 
   ./profiles/desktop.nix
   ./profiles/gnome.nix

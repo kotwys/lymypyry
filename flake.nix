@@ -51,7 +51,7 @@
 
       # Flake outputs
 
-      nixosModules = { inherit (suites) kdeconnect; };
+      nixosModules = { inherit (suites) kdeconnect extra-xkb-options; };
 
       packagesBuilder = { nixpkgs }: import ./pkgs { pkgs = nixpkgs; };
     };
