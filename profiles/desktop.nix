@@ -17,6 +17,7 @@
     xkbOptions = "grp:alt_shift_toggle,ctrl:swapcaps";
     extraXkbOptions = {
       typo.birman = {
+        bindAs = "misc:birman";
         include = [ "typo(base)" ];
 
         keys.TLDE = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_grave" ];

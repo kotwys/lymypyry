@@ -49,12 +49,12 @@ let
         ${optionalString (include != [ ]) (mkInclude include)}
 
         ${concatStringsSep "\n" (mapAttrsToList mkKey keys)}
-      }
+      };
       EOF
 
       sed -f- -i rules/0042-o_s.part << EOF
-      /! options/a\
-        ${bindAs'} = +${group}(${name})
+      /! option/a\
+      \ \ ${bindAs'} = +${group}(${name})
       EOF
     '';
 in {
