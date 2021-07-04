@@ -9,10 +9,17 @@ let
     submodule {
       options = {
         bindAs = mkOption {
-          description = "ID to bind option to. Defaults to <group>:<symbols>";
+          description = "ID to bind the option to. Defaults to <group>:<symbols>";
           type = nullOr str;
           default = null;
           example = "misc:typo-my";
+        };
+
+        layouts = mkOption {
+          description = "Expose the option to specified layouts.";
+          type = listOf str;
+          default = [ ];
+          example = [ "*" ];
         };
 
         include = mkOption {
@@ -40,9 +47,21 @@ let
     key <${name}> { [ ${concatStringsSep ", " symbols} ] };
   '';
 
+  exposeForLayout = binding: layout: ''
+    for i in {0..4}; do
+      file=$(find rules -maxdepth 1 -name "00$((36+i))-l*")
+      sed -f- -i "$file" << EOF
+    /! layout/a\
+    \ \ ${layout} ${binding}$(test $i -gt 0 && echo ":$i")
+    EOF
+    done
+  '';
+
   writeSymbols = group: name:
-    { bindAs, include, keys }:
-    let bindAs' = if bindAs == null then "${group}:${name}" else bindAs;
+    { bindAs, layouts, include, keys }:
+    let
+      bindAs' = if bindAs == null then "${group}:${name}" else bindAs;
+      binding = "${bindAs'} = +${group}(${name})";
     in ''
       cat >> symbols/${group} << EOF
       partial alphanumeric_keys xkb_symbols "${name}" {
@@ -54,9 +73,9 @@ let
 
       sed -f- -i rules/0042-o_s.part << EOF
       /! option/a\
-      \ \ ${bindAs'} = +${group}(${name})
+      \ \ ${binding}
       EOF
-    '';
+    '' + (concatStringsSep "\n" (map (exposeForLayout binding) layouts));
 in {
   options.services.xserver.extraXkbOptions = mkOption {
     description = "Attribute set of option groups";

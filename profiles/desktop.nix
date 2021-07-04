@@ -16,8 +16,10 @@
     layout = "us,ru";
     xkbOptions = "grp:alt_shift_toggle,ctrl:swapcaps";
     extraXkbOptions = {
+      # https://ilyabirman.ru/projects/typography-layout/
       typo.birman = {
         bindAs = "misc:birman";
+        layouts = [ "us" "ru" ];
         include = [ "typo(base)" ];
 
         keys.TLDE = [ "NoSymbol" "NoSymbol" "NoSymbol" "dead_grave" ];
