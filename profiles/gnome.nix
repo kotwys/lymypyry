@@ -14,8 +14,8 @@
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
-    gnomeExtensions.gnome-shell-extension-tray-icons-reloaded
-    gnomeExtensions.gnome-shell-extension-blur-my-shell
+    gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.blur-my-shell
     locals.gnome-shell-extension-dash-to-dock
   ];
 
