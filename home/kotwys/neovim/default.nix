@@ -24,6 +24,7 @@
         "LnL7/vim-nix"
         "vim-pandoc/vim-pandoc"
         "vim-pandoc/vim-pandoc-syntax"
+        "junegunn/goyo.vim"
       ];
       after = builtins.readFile ./plugins.vim;
     };
