@@ -2,7 +2,6 @@
 
 {
   networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
 
   i18n.defaultLocale = "ru_RU.UTF-8";
   time.timeZone = "Europe/Samara";
@@ -65,6 +64,8 @@
   };
 
   services.zerotierone.enable = true;
+
+  networking.firewall.trustedInterfaces = [ "zt+" ];
 
   programs.neovim = {
     enable = true;
