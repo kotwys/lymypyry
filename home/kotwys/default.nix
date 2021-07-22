@@ -30,6 +30,9 @@
 
     userName = "kotwys";
     userEmail = "52920928+kotwys@users.noreply.github.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+    };
   };
 
   programs.gpg.enable = true;
