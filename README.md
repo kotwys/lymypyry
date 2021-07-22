@@ -28,4 +28,24 @@ configuration.
 }
 ```
 
+`extra-xkb-options` — allow to add custom XKB options (as symbols.)
+
+```nix
+{
+  services.xserver.extraXkbOptions = {
+    <file>.<name> = {
+      # expose the option by followign name (default: <file>:<name>)
+      bindAs = "my:option";
+      # symbols to include (optional)
+      include = [ "latin" ];
+      # layouts to expose option to (optional, if more than one)
+      layouts = [ "us" ];
+
+      # key definitions
+      keys.<key> = [ "NoSymbol" "NoSymbol" "adiaeresis" "Adiaeresis" ];
+    };
+  };
+}
+```
+
 [ewlsh/gnome-40]: https://github.com/ewlsh/dash-to-dock/tree/ewlsh/gnome-40
