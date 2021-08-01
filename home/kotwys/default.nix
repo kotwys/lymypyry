@@ -14,6 +14,7 @@
     tdesktop
     gimp
     inkscape
+    jq
   ];
 
   home.sessionVariables = {
