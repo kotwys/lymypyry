@@ -60,6 +60,8 @@
     };
   };
 
+  home.file.".XCompose".source = ./XCompose;
+
   xdg.enable = true;
 
   home.stateVersion = "21.05";

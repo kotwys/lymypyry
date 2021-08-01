@@ -1,0 +1,6 @@
+include "%L"
+
+<Multi_key> <d> <z> : "ʒ"
+<Multi_key> <D> <Z> : "Ʒ"
+<Multi_key> <d> <x> : "ǯ"
+<Multi_key> <D> <X> : "Ǯ"
