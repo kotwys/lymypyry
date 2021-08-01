@@ -20,6 +20,7 @@
     TEXMFHOME = "${config.xdg.dataHome}/texmf";
     TEXMFVAR = "${config.xdg.cacheHome}/texlive/texmf-var";
     TEXMFCONFIG = "${config.xdg.configHome}/texlive/texmf-config";
+    CARGO_HOME = "${config.xdg.dataHome}/cargo";
   };
 
   programs.bash = { enable = true; };
@@ -53,6 +54,9 @@
       "editor.cursorSmoothCaretAnimation" = true;
 
       "editor.tabSize" = 2;
+      "[rust]" = {
+        "editor.tabSize" = 4;
+      };
 
       "emmet.includeLanguages" = {
         nunjucks = "html";
