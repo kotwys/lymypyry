@@ -1,6 +1,6 @@
 { utils }:
 
-utils.lib.modulesFromList [
+utils.lib.exportModules [
   ./modules/kdeconnect.nix
   ./modules/extra-xkb-options.nix
 
@@ -9,5 +9,7 @@ utils.lib.modulesFromList [
   ./profiles/grub.nix
   ./profiles/uefi.nix
 ] // {
-  hm = utils.lib.modulesFromList [ ./modules/hm/vim-plug.nix ];
+  hm = utils.lib.exportModules [
+    ./modules/hm/vim-plug.nix
+  ];
 }

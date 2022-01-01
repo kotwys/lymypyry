@@ -14,9 +14,9 @@
 
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
-    gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
-    locals.gnome-shell-extension-dash-to-dock
+    gnomeExtensions.dash-to-dock
   ];
 
   services.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;

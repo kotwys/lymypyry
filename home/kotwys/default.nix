@@ -13,6 +13,8 @@
     jq textql
   ];
 
+  home.sessionPath = [ "$HOME/.local/bin" ];
+
   home.sessionVariables = {
     TEXMFHOME = "${config.xdg.dataHome}/texmf";
     TEXMFVAR = "${config.xdg.cacheHome}/texlive/texmf-var";
@@ -20,7 +22,7 @@
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
   };
 
-  programs.bash = { enable = true; };
+  programs.bash.enable = true;
 
   programs.git = {
     enable = true;

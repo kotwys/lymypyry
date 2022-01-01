@@ -2,17 +2,17 @@
   description = "My NixOS config, modules and packages.";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.05";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/v1.3.1";
     home-manager = {
-      url = "github:nix-community/home-manager/release-21.05";
+      url = "github:nix-community/home-manager/release-21.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = { self, nixpkgs, utils, home-manager, ... }@inputs:
     let suites = import ./suites.nix { inherit utils; };
-    in utils.lib.systemFlake {
+    in utils.lib.mkFlake {
       inherit self inputs;
 
       channelsConfig.allowUnfree = true;
@@ -25,34 +25,31 @@
       hostDefaults.modules = [
         nixpkgs.nixosModules.notDetected
         home-manager.nixosModules.home-manager
-        {
+        ({ pkgs, ... }: {
+          nix.package = pkgs.nixFlakes;
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             sharedModules = builtins.attrValues suites.hm;
           };
-        }
-        utils.nixosModules.saneFlakeDefaults
+        })
       ] ++ (builtins.attrValues self.nixosModules);
 
-      hosts.kotwys-pc.modules = with suites; [
-        ./hosts/kotwys-pc.nix
-        uefi
-        desktop
-        gnome
-      ];
+      hosts.kotwys-pc.modules =
+        [ ./hosts/kotwys-pc.nix ]
+        ++ (builtins.attrValues {
+          inherit (suites) uefi desktop gnome;
+        });
 
-      hosts.kotwys-lap.modules = with suites; [
-        ./hosts/kotwys-lap.nix
-        grub
-        desktop
-        gnome
-      ];
+      hosts.kotwys-lap.modules =
+        [ ./hosts/kotwys-lap.nix ]
+        ++ (builtins.attrValues {
+          inherit (suites) grub desktop gnome;
+        });
 
-      # Flake outputs
-
+      outputsBuilder = channels: {
+        packages = import ./pkgs { pkgs = channels.nixpkgs; };
+      };
       nixosModules = { inherit (suites) kdeconnect extra-xkb-options; };
-
-      packagesBuilder = { nixpkgs }: import ./pkgs { pkgs = nixpkgs; };
     };
 }
