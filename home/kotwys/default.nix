@@ -10,11 +10,7 @@
 
   home.packages = with pkgs; [
     (vivaldi.override { proprietaryCodecs = true; })
-    discord
-    tdesktop
-    gimp
-    inkscape
-    jq
+    jq textql
   ];
 
   home.sessionVariables = {
@@ -39,31 +35,7 @@
 
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      bbenoist.Nix
-      vscodevim.vim
-    ];
-    userSettings = {
-      "editor.fontFamily" = "Cascadia Code, monospace";
-      "editor.fontLigatures" = true;
-      "editor.fontSize" = 13;
-      "editor.minimap.enabled" = false;
-      "editor.smoothScrolling" = true;
-      "editor.cursorSmoothCaretAnimation" = true;
-
-      "editor.tabSize" = 2;
-      "[rust]" = {
-        "editor.tabSize" = 4;
-      };
-
-      "emmet.includeLanguages" = {
-        nunjucks = "html";
-      };
-    };
-  };
+  programs.vscode.enable = true;
 
   home.file.".XCompose".source = ./XCompose;
 

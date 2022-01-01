@@ -2,6 +2,7 @@
 
 {
   networking.networkmanager.enable = true;
+  boot.supportedFilesystems = [ "ntfs" ];
 
   i18n.defaultLocale = "ru_RU.UTF-8";
   time.timeZone = "Europe/Samara";
@@ -47,7 +48,7 @@
     };
   };
 
-  services.kdeconnect = { enable = true; };
+  services.kdeconnect.enable = true;
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -62,19 +63,27 @@
     enable = true;
     drivers = with pkgs; [ locals.epson_201401w ];
   };
+  hardware.sane = {
+    enable = true;
+    extraBackends = [ pkgs.hplip ];
+  };
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_13;
+  };
 
   services.zerotierone.enable = true;
-
   networking.firewall.trustedInterfaces = [ "zt+" ];
 
+  services.flatpak.enable = true;
   programs.neovim = {
     enable = true;
     defaultEditor = true;
   };
-
   programs.fish.enable = true;
-
   programs.ssh.askPassword = "";
+  programs.adb.enable = true;
 
   fonts = {
     fontconfig = {
@@ -110,15 +119,18 @@
     libreoffice-fresh
     wget
     git
+    wineWowPackages.staging
   ];
 
   users.users.kotwys = {
     createHome = true;
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "adbusers" ];
     shell = pkgs.fish;
     password = "welcome";
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   home-manager.users.kotwys = import ../home/kotwys;
 

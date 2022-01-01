@@ -34,7 +34,7 @@ autocmd FileType denite call s:denite_my_settings()
 let g:pandoc#folding#fdc=0
 let g:pandoc#folding#level=6
 let g:pandoc#spell#default_langs=['ru', 'en']
-let g:pandoc#formatting#mode='ha'
+let g:pandoc#formatting#mode='hA'
 
 augroup Languages
   au!
