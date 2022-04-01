@@ -9,9 +9,6 @@ Flake with my NixOS configuration, used packages and modules.
 `epson_201401w` — driver for EPSON printers (series L456, L455, L366, L365, 
 L362, L360, L312, L310, L222, L220, L132, L130).
 
-`gnome-shell-extension-dash-to-dock` — Dash to Dock extension as at 
-[ewlsh/gnome-40][ewlsh/gnome-40] branch.
-
 `tl-minecraft` — Minecraft launcher.
 
 ### Modules
@@ -33,7 +30,7 @@ configuration.
 ```nix
 {
   services.xserver.extraXkbOptions = {
-    <file>.<name> = {
+    "<file>"."<name>" = {
       # expose the option by followign name (default: <file>:<name>)
       bindAs = "my:option";
       # symbols to include (optional)
@@ -42,10 +39,8 @@ configuration.
       layouts = [ "us" ];
 
       # key definitions
-      keys.<key> = [ "NoSymbol" "NoSymbol" "adiaeresis" "Adiaeresis" ];
+      keys."<key>" = [ "NoSymbol" "NoSymbol" "adiaeresis" "Adiaeresis" ];
     };
   };
 }
 ```
-
-[ewlsh/gnome-40]: https://github.com/ewlsh/dash-to-dock/tree/ewlsh/gnome-40

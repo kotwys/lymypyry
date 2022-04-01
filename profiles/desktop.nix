@@ -10,6 +10,8 @@
     font = "latarcyrheb-sun16";
     keyMap = "us";
   };
+  i18n.inputMethod.enabled = "ibus";
+  i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [ mozc ];
 
   services.xserver = {
     enable = true;
@@ -50,6 +52,11 @@
 
   services.kdeconnect.enable = true;
 
+  networking.hosts = {
+    # Please support Ukraine
+    "::1" = [ "redirectrussia.org" ];
+  };
+
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -73,9 +80,6 @@
     package = pkgs.postgresql_13;
   };
 
-  services.zerotierone.enable = true;
-  networking.firewall.trustedInterfaces = [ "zt+" ];
-
   services.flatpak.enable = true;
   programs.neovim = {
     enable = true;
@@ -83,7 +87,6 @@
   };
   programs.fish.enable = true;
   programs.ssh.askPassword = "";
-  programs.adb.enable = true;
 
   fonts = {
     fontconfig = {
@@ -107,6 +110,7 @@
       open-sans
       noto-fonts
       noto-fonts-emoji
+      noto-fonts-cjk
       ubuntu_font_family
       cascadia-code
     ];
@@ -119,7 +123,6 @@
     libreoffice-fresh
     wget
     git
-    wineWowPackages.staging
   ];
 
   users.users.kotwys = {

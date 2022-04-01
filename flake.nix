@@ -26,7 +26,11 @@
         nixpkgs.nixosModules.notDetected
         home-manager.nixosModules.home-manager
         ({ pkgs, ... }: {
-          nix.package = pkgs.nixFlakes;
+          nix = {
+            package = pkgs.nixFlakes;
+            generateRegistryFromInputs = true;
+            generateNixPathFromInputs = true;
+          };
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
@@ -38,7 +42,7 @@
       hosts.kotwys-pc.modules =
         [ ./hosts/kotwys-pc.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gnome;
+          inherit (suites) uefi desktop gaming gnome;
         });
 
       hosts.kotwys-lap.modules =
@@ -48,7 +52,9 @@
         });
 
       outputsBuilder = channels: {
-        packages = import ./pkgs { pkgs = channels.nixpkgs; };
+        packages = import ./pkgs {
+          pkgs = channels.nixpkgs;
+        };
       };
       nixosModules = { inherit (suites) kdeconnect extra-xkb-options; };
     };
