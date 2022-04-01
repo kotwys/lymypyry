@@ -107,6 +107,7 @@
       '';
     };
     fonts = with pkgs; [
+      corefonts
       open-sans
       noto-fonts
       noto-fonts-emoji
