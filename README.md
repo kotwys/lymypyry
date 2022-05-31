@@ -11,6 +11,8 @@ L362, L360, L312, L310, L222, L220, L132, L130).
 
 `tl-minecraft` — Minecraft launcher.
 
+`memento` — [An mpv-based video player for studying Japanese](https://github.com/ripose-jp/Memento).
+
 ### Modules
 
 `kdeconnect` — adds the KDEConnect service with an appropriate firewall 
