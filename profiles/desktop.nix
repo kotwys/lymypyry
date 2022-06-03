@@ -111,7 +111,8 @@
       open-sans
       noto-fonts
       noto-fonts-emoji
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       ubuntu_font_family
       cascadia-code
     ];
