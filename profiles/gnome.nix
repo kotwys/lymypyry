@@ -4,12 +4,12 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  environment.gnome.excludePackages = with pkgs.gnome; [
-    cheese
-    epiphany
-    totem
-    geary
-    seahorse
+  environment.gnome.excludePackages = [
+    pkgs.epiphany
+    pkgs.gnome.cheese
+    pkgs.gnome.geary
+    pkgs.gnome.seahorse
+    pkgs.gnome.totem
   ];
 
   environment.systemPackages = with pkgs; [

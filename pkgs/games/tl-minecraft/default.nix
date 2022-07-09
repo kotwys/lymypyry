@@ -1,9 +1,9 @@
-{ stdenv, fetchurl, bash, jdk, libpulseaudio, runCommand, xorg }:
+{ stdenv, lib, fetchurl, bash, jdk, libpulseaudio, runCommand, xorg }:
 
 let
   version = "1.114.3";
   librariesPath = with xorg;
-    stdenv.lib.makeLibraryPath [
+    lib.makeLibraryPath [
       libX11
       libXext
       libXcursor
@@ -13,8 +13,8 @@ let
     ];
 in runCommand "tl-${version}" {
   binary = fetchurl {
-    url = "https://tlaun.ch/latest/jar";
-    sha256 = "0k6y1jblgbd2jypfbmxrnbx2k647b72wghfbbnk8qb9gs4k3ji9j";
+    url = "https://tlaun.ch/jar";
+    sha256 = "0y90g9kkxxwaa9ixzamd74izh3hvw12rwcyd2z7drnmhnal67psj";
   };
   PATH = "${stdenv}/bin";
   desktopFile = ./tl.desktop;

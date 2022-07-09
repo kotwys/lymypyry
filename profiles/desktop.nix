@@ -8,7 +8,7 @@
   time.timeZone = "Europe/Samara";
   console = {
     font = "latarcyrheb-sun16";
-    keyMap = "us";
+    useXkbConfig = true;
   };
   i18n.inputMethod.enabled = "ibus";
   i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [ mozc ];
