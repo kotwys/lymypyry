@@ -5,7 +5,13 @@ include "%L"
 <Multi_key> <d> <x> : "ǯ"
 <Multi_key> <D> <X> : "Ǯ"
 
-# Ukrainian
+# Ukrainian and Belarusian
+<Multi_key> <Cyrillic_YERU> <Cyrillic_YERU> : "І"
+<Multi_key> <Cyrillic_yeru> <Cyrillic_yeru> : "і"
+<Multi_key> <Cyrillic_SHORTI> <Cyrillic_YERU> : "Ї"
+<Multi_key> <Cyrillic_shorti> <Cyrillic_yeru> : "ї"
+<Multi_key> <Cyrillic_U> <Cyrillic_GHE> : "Ў"
+<Multi_key> <Cyrillic_u> <Cyrillic_ghe> : "ў"
 <Multi_key> <Cyrillic_E> <Cyrillic_E> : "Є"
 <Multi_key> <Cyrillic_e> <Cyrillic_e> : "є"
 <Multi_key> <Cyrillic_GHE> <Cyrillic_GHE> : "Ґ"
