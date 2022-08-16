@@ -27,7 +27,11 @@ configuration.
 }
 ```
 
-`extra-xkb-options` — allow to add custom XKB options (as symbols.)
+`extra-xkb-options` — allow to add custom XKB options (as symbols).
+
+This effectively creates an overlay with modified `xorg` which requires
+rebuilding a ton of derivations (including `webkitgtk` in some configurations).
+Use with caution!
 
 ```nix
 {
