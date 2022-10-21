@@ -8,9 +8,13 @@
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, utils, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, utils, home-manager, helix, ... }@inputs:
     let suites = import ./suites.nix { inherit utils; };
     in utils.lib.mkFlake {
       inherit self inputs;
@@ -18,8 +22,10 @@
       channelsConfig.allowUnfree = true;
       channels.nixpkgs = {
         input = nixpkgs;
-        overlaysBuilder = _:
-          [ (_: _: { locals = self.packages.x86_64-linux; }) ];
+        overlaysBuilder = _: [
+          (_: _: { locals = self.packages.x86_64-linux; })
+          (_: _: { helix = helix.packages.x86_64-linux.helix; })
+        ];
       };
 
       hostDefaults.modules = [

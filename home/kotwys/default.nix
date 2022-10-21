@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./neovim ./fish ];
+  imports = [ ./neovim ./fish ./helix ];
 
   programs.home-manager.enable = true;
 
