@@ -5,6 +5,14 @@ include "%L"
 <Multi_key> <d> <x> : "ǯ"
 <Multi_key> <D> <X> : "Ǯ"
 
+# Pre-1917 orthography
+<Multi_key> <Cyrillic_IE> <Cyrillic_IE> : "Ѣ"
+<Multi_key> <Cyrillic_ie> <Cyrillic_ie> : "ѣ"
+<Multi_key> <Cyrillic_I> <Cyrillic_I> : "Ѵ"
+<Multi_key> <Cyrillic_i> <Cyrillic_i> : "ѵ"
+<Multi_key> <Cyrillic_EF> <Cyrillic_EF> : "Ѳ"
+<Multi_key> <Cyrillic_ef> <Cyrillic_ef> : "ѳ"
+
 # Ukrainian and Belarusian
 <Multi_key> <Cyrillic_YERU> <Cyrillic_YERU> : "І"
 <Multi_key> <Cyrillic_yeru> <Cyrillic_yeru> : "і"
@@ -26,8 +34,8 @@ include "%L"
 <Multi_key> <Cyrillic_che> <Cyrillic_che> : "ћ"
 
 # Turkic
-<Multi_key> <Cyrillic_IE> <Cyrillic_IE> : "Ә"
-<Multi_key> <Cyrillic_ie> <Cyrillic_ie> : "ә"
+<Multi_key> <Cyrillic_A> <Cyrillic_A> : "Ә"
+<Multi_key> <Cyrillic_a> <Cyrillic_a> : "ә"
 <Multi_key> <Cyrillic_HA> <Cyrillic_HA> : "Һ"
 <Multi_key> <Cyrillic_ha> <Cyrillic_ha> : "һ"
 <Multi_key> <Cyrillic_GHE> <minus> : "Ғ"
