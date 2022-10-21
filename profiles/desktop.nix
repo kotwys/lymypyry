@@ -44,11 +44,6 @@
     extraBackends = [ pkgs.hplip ];
   };
 
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_13;
-  };
-
   services.flatpak.enable = true;
   programs.neovim = {
     enable = true;
