@@ -14,17 +14,6 @@ in
         select = "block";
       };
     };
-    languages = [
-      {
-        name = "pascal";
-        language-server.command =
-          "${pkgs.locals.pascal-language-server}/bin/pasls";
-      }
-    ];
     inherit themes;
   };
-
-  home.packages = [
-    pkgs.locals.pascal-language-server
-  ];
 }
