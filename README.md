@@ -13,7 +13,7 @@ L362, L360, L312, L310, L222, L220, L132, L130).
 
 `memento` — [An mpv-based video player for studying Japanese](https://github.com/ripose-jp/Memento).
 
-`pascal-language-server` - [LSP server implementation for Pascal](https://github.com/arjanadriaanse/pascal-language-server).
+`pascalabcnet` — [PascalABC.NET compiler](http://pascalabc.net/en/).
 
 ### Modules
 
