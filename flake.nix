@@ -57,6 +57,12 @@
           inherit (suites) grub desktop gnome;
         });
 
+      hosts.valo.modules =
+        [ ./hosts/valo.nix ]
+        ++ (builtins.attrValues {
+          inherit (suites) uefi desktop gnome;
+        });
+
       outputsBuilder = channels: {
         packages = import ./pkgs {
           pkgs = channels.nixpkgs;
