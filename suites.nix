@@ -9,6 +9,7 @@ utils.lib.exportModules [
   ./profiles/gnome.nix
   ./profiles/grub.nix
   ./profiles/uefi.nix
+  ./profiles/wine.nix
 ] // {
   hm = utils.lib.exportModules [
     ./modules/hm/vim-plug.nix
