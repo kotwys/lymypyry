@@ -62,12 +62,16 @@
         monospace = [ "Cascadia Code" "Noto Color Emoji" ];
       };
       localConf = ''
+        <?xml version="1.0"?>
+        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
+        <fontconfig>
         <match target="pattern">
           <test qual="any" name="family"><string>-apple-system</string></test>
           <edit name="family" mode="prepend" binding="same">
             <string>Ubuntu</string>
           </edit>
         </match>
+        </fontconfig>
       '';
     };
     fonts = with pkgs; [
