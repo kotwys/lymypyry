@@ -8,10 +8,12 @@
   home.username = "kotwys";
   home.homeDirectory = "/home/kotwys";
 
-  home.packages = with pkgs; [
-    (vivaldi.override { proprietaryCodecs = true; })
-    jq textql
-  ];
+  home.packages = builtins.attrValues {
+    inherit (pkgs) blackbox-terminal jq textql;
+    vivaldi = pkgs.vivaldi.override {
+      proprietaryCodecs = true;
+    };
+  };
 
   home.sessionPath = [ "$HOME/.local/bin" ];
 
@@ -42,6 +44,12 @@
   home.file.".XCompose".source = ./XCompose;
 
   xdg.enable = true;
-
+  
+  xdg.dataFile."blackbox/schemes/base2tone-motel-dark.json".source =
+    pkgs.fetchurl {
+      url = https://raw.githubusercontent.com/drkrynstrng/base2tone-tilix/84183625114555fc0b94dbbc533de0f97b973b6b/schemes/base2tone-motel-dark.json;
+      sha256 = "07j1bw555aapfvni43y2jwirh4fxhxkkvgxd9ry1w62d1339y0q2";
+    };
+  
   home.stateVersion = "21.05";
 }
