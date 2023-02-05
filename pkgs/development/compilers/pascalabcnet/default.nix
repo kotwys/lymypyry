@@ -1,12 +1,24 @@
-{ stdenv, lib, makeWrapper, fetchzip, mono }:
+{ stdenv, lib, makeWrapper, fetchzip, mono, unar }:
 
+let
+  # Able to handle non-standard encoding in filenames
+  fetchzip' = args: (fetchzip args).overrideAttrs(old: {
+    nativeBuildInputs = old.nativeBuildInputs ++ [ unar ];
+    postFetch = ''
+      unpackCmdHooks+=(unarUnpack)
+      unarUnpack() {
+        unar -D -nr "$1"
+      }
+    '' + old.postFetch;
+  });
+in
 stdenv.mkDerivation {
   pname = "pascalabcnet";
   version = "3.8.3";
   
-  src = fetchzip {
-    url = "http://web.archive.org/web/20220518183739/http://pascalabc.net/downloads/PABCNETC.zip";
-    sha256 = "1j7qc3pgyyqhwhwrwqdflzg6xl1l7vd1hw13ni86x9ynv7mmxhfy";
+  src = fetchzip' {
+    url = "http://web.archive.org/web/20230205091447/http://pascalabc.net/downloads/PABCNETC.zip";
+    sha256 = "8l6BRXqkXwYzYhfaJHBu7dSGhsR4QeQ7XAeV9JP9VKQ=";
     stripRoot = false;
   };
   
