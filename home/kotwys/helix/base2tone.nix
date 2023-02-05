@@ -39,7 +39,7 @@ let
   mkDark = palette: {
     "ui.background" = {
       fg = palette.a5;
-      bg = palette.a0;
+      # bg = palette.a0;
     };
     "ui.text" = palette.c7;
 
