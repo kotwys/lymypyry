@@ -6,5 +6,4 @@
 
   services.zerotierone.enable = true;
   networking.firewall.trustedInterfaces = [ "zt+" ];
-  programs.adb.enable = true;
 }
