@@ -71,6 +71,13 @@
             <string>Ubuntu</string>
           </edit>
         </match>
+        <match target="pattern">
+          <test qual="any" name="family"><string>Cascadia Code</string></test>
+          <edit name="family" mode="append" binding="weak">
+            <!-- Math symbols -->
+            <string>JetBrains Mono</string>
+          </edit>
+        </match>
         </fontconfig>
       '';
     };
@@ -83,6 +90,7 @@
       noto-fonts-cjk-serif
       ubuntu_font_family
       cascadia-code
+      jetbrains-mono
     ];
   };
 
