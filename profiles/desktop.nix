@@ -2,6 +2,7 @@
 
 {
   networking.networkmanager.enable = true;
+  networking.wireguard.enable = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
   i18n.defaultLocale = "ru_RU.UTF-8";
