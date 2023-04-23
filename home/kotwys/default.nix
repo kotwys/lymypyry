@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./neovim ./fish ./helix ];
+  imports = [ ./fish ./helix ./emacs ];
 
   programs.home-manager.enable = true;
 
@@ -22,6 +22,7 @@
     TEXMFVAR = "${config.xdg.cacheHome}/texlive/texmf-var";
     TEXMFCONFIG = "${config.xdg.configHome}/texlive/texmf-config";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
+    EDITOR = "hx";
   };
 
   programs.bash.enable = true;

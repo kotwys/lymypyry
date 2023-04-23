@@ -46,10 +46,6 @@
   };
 
   services.flatpak.enable = true;
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
   programs.fish.enable = true;
   programs.ssh.askPassword = "";
 
@@ -96,12 +92,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wl-clipboard # Needed for Neovim to be able to access clipboard
+    wl-clipboard
     firefox
     vlc
     libreoffice-fresh
     wget
     git
+    helix
   ];
 
   users.users.kotwys = {
