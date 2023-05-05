@@ -40,6 +40,7 @@
             sharedModules = builtins.attrValues suites.hm;
           };
         })
+        ./cachix.nix
       ] ++ (builtins.attrValues self.nixosModules);
 
       hosts.kotwys-pc.modules =
