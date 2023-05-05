@@ -15,6 +15,8 @@
 (column-number-mode 1)
 (line-number-mode 1)
 
+(setq-default scroll-conservatively 1)
+
 (setq-default indent-tabs-mode nil)
 
 (setq-default fill-column 80)
@@ -34,6 +36,6 @@
 (load-theme 'base2tone-motel t)
 
 (mapc (lambda (path)
-	    (load-file path))
-	  (directory-files (concat user-emacs-directory "/conf.d/")
-		               t "\.el$"))
+        (load-file path))
+      (directory-files (concat user-emacs-directory "/conf.d/")
+                       t "\.el$"))
