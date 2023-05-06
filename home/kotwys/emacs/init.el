@@ -15,7 +15,7 @@
 (column-number-mode 1)
 (line-number-mode 1)
 
-(setq-default scroll-conservatively 1)
+(setq-default scroll-conservatively 100)
 
 (setq-default indent-tabs-mode nil)
 

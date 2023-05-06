@@ -4,8 +4,9 @@ let
   emacs' = (pkgs.emacsPackagesFor pkgs.emacsGit-nox).emacsWithPackages
     (p: builtins.attrValues {
       inherit (p.melpaPackages)
-        meow powerline magit yaml clojure-mode rust-mode nix-mode
-        markdown-mode treesit-auto;
+        meow powerline magit yaml company lsp-mode lsp-ui flycheck
+        yasnippet clojure-mode rust-mode nix-mode markdown-mode
+        treesit-auto;
     });
   mkTheme = pkgs.callPackage ./base2tone.nix { emacs = emacs'; };
 in

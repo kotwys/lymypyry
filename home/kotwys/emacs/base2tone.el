@@ -37,7 +37,7 @@
               '(button ((t (:inherit link :underline nil))))
               '(region ((t (:background ,a1))))
               '(secondary-selection ((t (:background ,b0))))
-	      '(highlight ((t (:background ,b0))))
+	      '(highlight ((t (:background ,a1))))
               '(match ((t (:foreground ,d4 :underline t))))
 	      '(line-number ((t (:foreground ,a2))))
 	      '(line-number-current-line ((t (:foreground ,a3))))
@@ -78,7 +78,17 @@
               '(magit-section-heading ((t (:foreground ,d5 :weight bold))))
               '(magit-section-heading-select ((t (:inherit magit-section-heading :background ,a1))))
 
+              '(company-tooltip ((t (:background ,a0 :foreground ,c5))))
+              '(company-tooltip-annotation ((t (:foreground ,a2))))
+              '(company-tooltip-common ((t (:foreground ,d7))))
+              '(company-tooltip-selection ((t (:background ,a1))))
+              '(company-tooltip-scrollbar-thumb ((t (:background ,d0))))
+              '(company-tooltip-scrollbar-track ((t (:background ,a0))))
+              '(flymake-error ((t (:underline t))))
+              '(lsp-lens-face ((t (:foreground ,a3))))
+
               '(nix-constant-face ((t (:foreground ,d5))))
+              '(markdown-header-face ((t (:foreground ,d5 :weight bold))))
 
 	      '(minibuffer-prompt ((t (:foreground ,d0))))
 	      '(show-paren-match ((t (:background ,a0 :foreground ,d4 :underline t))))
