@@ -1,12 +1,13 @@
 (set-frame-font "Cascadia Code-10" nil t)
 (set-face-attribute 'default nil :height 120)
 
-(tool-bar-mode -1)
 (menu-bar-mode -1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (transient-mark-mode t)
+
+(set-language-environment "UTF-8")
 
 (show-paren-mode 1)
 (setq show-paren-when-point-inside-paren t)
