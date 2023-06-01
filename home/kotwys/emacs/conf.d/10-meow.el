@@ -85,5 +85,27 @@
 (meow-setup)
 (meow-global-mode 1)
 
-(setq meow-cursor-type-normal '(bar . 2))
-(setq meow-cursor-type-motion '(bar . 2))
+(setq meow-cursor-type-normal 'bar)
+(setq meow-cursor-type-motion 'bar)
+(defun meow--on-exit ()
+  (send-string-to-terminal "\e[5 q"))
+
+(defun clipboard-copy (start end)
+  "Copy selected region to the clipboard using wl-copy"
+  (interactive "r")
+  (cond
+   ((not (use-region-p))
+    (message (propertize
+              "The region is not accessible."
+              'face 'error)))
+   ((not (string= (getenv "XDG_SESSION_TYPE") "wayland"))
+    (message (propertize
+              "The session is not a Wayland session."
+              'face 'error)))
+   (t (let ((process (make-process
+                      :name "wl-copy"
+                      :buffer nil
+                      :command '("wl-copy")
+                      :connection-type 'pipe)))
+        (process-send-region process start end)
+        (process-send-eof process)))))

@@ -44,6 +44,9 @@
               '(window-divider ((t (:background ,a0 :foreground ,a3))))
               '(vertical-border ((t (:inherit window-divider))))
               '(tooltip ((t (:background ,d0 :foreground ,a0))))
+              '(widget-inactive ((t (:foreground ,a2))))
+              '(widget-field ((t (:background ,a0 :foreground ,c7))))
+              '(help-key-binding ((t (:background ,a0 :foreground ,d0))))
 
               '(tab-bar ((t (:background ,a1))))
               '(tab-bar-tab ((t (:background ,a2))))
