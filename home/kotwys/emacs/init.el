@@ -44,6 +44,8 @@
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'electric-pair-local-mode)
 
+(add-to-list 'load-path
+             (concat user-emacs-directory "site-lisp/"))
 (add-to-list 'custom-theme-load-path
              (concat user-emacs-directory "themes/"))
 
