@@ -55,7 +55,11 @@
               '(tab-bar-tab-inactive ((t (:background ,a1))))
               '(tab-bar-tab-ungrouped ((t (:background ,a1))))
               '(tab-line ((t (:background ,a1))))
-        
+
+              '(tty-menu-disabled-face ((t (:background ,a0 :foreground ,c5))))
+              '(tty-menu-enabled-face ((t (:inherit tty-menu-disabled-face :foreground ,d7))))
+              '(tty-menu-selected-face ((t (:background ,a1))))
+
               '(font-lock-builtin-face ((t (:foreground ,b2))))
               '(font-lock-comment-face ((t (:foreground ,a3 :slant italic))))
               '(font-lock-doc-face ((t (:inherit font-lock-comment-face))))

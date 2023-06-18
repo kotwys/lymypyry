@@ -4,6 +4,7 @@
 (menu-bar-mode -1)
 (xterm-mouse-mode 1)
 (fset 'yes-or-no-p 'y-or-n-p)
+(setq inhibit-splash-screen t)
 
 (keymap-global-set "<mouse-5>" 'custom-scroll-up)
 (keymap-global-set "<mouse-4>" 'custom-scroll-down)
@@ -12,10 +13,10 @@
 (keymap-global-unset "C-<down-mouse-3>")
 (defun custom-scroll-down ()
   (interactive)
-  (scroll-down 1))
+  (scroll-down 2))
 (defun custom-scroll-up ()
   (interactive)
-  (scroll-up 1))
+  (scroll-up 2))
 
 (transient-mark-mode t)
 
