@@ -44,6 +44,9 @@
 (setq-default display-line-numbers-width 3)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'electric-pair-local-mode)
+(add-hook 'makefile-mode
+          (lambda ()
+            (setq tab-width 2)))
 
 (add-to-list 'load-path
              (concat user-emacs-directory "site-lisp/"))
