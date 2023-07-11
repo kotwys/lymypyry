@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./fish ./helix ./emacs ];
+  imports = [ ./fish ./helix ./hyper ./emacs ];
 
   programs.home-manager.enable = true;
 
@@ -9,7 +9,7 @@
   home.homeDirectory = "/home/kotwys";
 
   home.packages = builtins.attrValues {
-    inherit (pkgs) blackbox-terminal jq textql;
+    inherit (pkgs) yq textql;
     vivaldi = pkgs.vivaldi.override {
       proprietaryCodecs = true;
     };
@@ -45,12 +45,6 @@
   home.file.".XCompose".source = ./XCompose;
 
   xdg.enable = true;
-  
-  xdg.dataFile."blackbox/schemes/base2tone-motel-dark.json".source =
-    pkgs.fetchurl {
-      url = https://raw.githubusercontent.com/drkrynstrng/base2tone-tilix/84183625114555fc0b94dbbc533de0f97b973b6b/schemes/base2tone-motel-dark.json;
-      sha256 = "07j1bw555aapfvni43y2jwirh4fxhxkkvgxd9ry1w62d1339y0q2";
-    };
   
   home.stateVersion = "21.05";
 }

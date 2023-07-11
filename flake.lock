@@ -74,6 +74,22 @@
         "type": "github"
       }
     },
+    "hyperpkgs": {
+      "locked": {
+        "lastModified": 1682493015,
+        "narHash": "sha256-KiMOAe8u83QDF40Z25kWMkZbqr9U+mvjvEJy5Qvw0nw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "60c0f762658916a4a5b5a36b3e06486f8301daf4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "60c0f7626589",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1688500189,
@@ -126,6 +142,7 @@
       "inputs": {
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
+        "hyperpkgs": "hyperpkgs",
         "nixpkgs": "nixpkgs_2",
         "utils": "utils"
       }

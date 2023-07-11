@@ -9,10 +9,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    # Pinpoint an older version of Hyper:
+    # https://github.com/NixOS/nixpkgs/issues/105961
+    hyperpkgs.url = "github:NixOS/nixpkgs/60c0f7626589";
   };
 
-  outputs = { self, nixpkgs, utils, home-manager, emacs-overlay, ... }@inputs:
-    let suites = import ./suites.nix { inherit utils; };
+  outputs =
+    { self, nixpkgs, utils, home-manager, emacs-overlay
+    , hyperpkgs, ... }@inputs:
+    let
+      suites = import ./suites.nix { inherit utils; };
+      hyper = (import hyperpkgs { system = "x86_64-linux"; }).hyper;
     in utils.lib.mkFlake {
       inherit self inputs;
 
@@ -20,6 +27,7 @@
       channels.nixpkgs = {
         input = nixpkgs;
         overlaysBuilder = _: [
+          (_: _: { inherit hyper; })
           (_: _: { locals = self.packages.x86_64-linux; })
           emacs-overlay.overlay
         ];
