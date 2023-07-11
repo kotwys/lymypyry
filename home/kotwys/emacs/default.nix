@@ -19,11 +19,11 @@ let
 
   emacs' = lib.pipe pkgs.emacs-git-nox [
     pkgs.emacsPackagesFor
-    (x: x.emacsWithPackages(p: builtins.attrValues {
+    (x: x.emacsWithPackages (p: builtins.attrValues {
       inherit (p.melpaPackages)
         meow powerline magit yaml company lsp-mode lsp-ui meson-mode
         flycheck yasnippet clojure-mode rust-mode nix-mode markdown-mode
-        treesit-auto;
+        treesit-auto bqn-mode;
       treesit = p.treesit-grammars.with-grammars (grammars: (
         lib.attrsets.attrVals
           (map (x: "tree-sitter-${x}") treesit-default-grammars)
