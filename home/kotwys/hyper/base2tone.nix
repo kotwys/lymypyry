@@ -19,7 +19,7 @@ stdenv.mkDerivation {
       blue: .baseB3,
       magenta: .baseD4,
       cyan: .baseB4,
-      white: .baseA6,
+      white: .baseA7,
       lightBlack: .baseA3,
       lightRed: .baseD5,
       lightGreen: .baseD4,
