@@ -4,6 +4,7 @@ let
   callPackage = pkgs.lib.callPackageWith (pkgs // packages);
   packages = {
     epson_201401w = callPackage ./misc/drivers/epson_201401w { };
+    hfst = callPackage ./development/libraries/hfst { };
     memento = pkgs.libsForQt5.callPackage ./applications/video/memento.nix { };
     pascalabcnet = callPackage ./development/compilers/pascalabcnet { };
     electron-mksnapshot = callPackage ./development/tools/electron/mksnapshot { } "25.1.1" {

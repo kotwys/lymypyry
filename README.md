@@ -11,6 +11,9 @@ Flake with my NixOS configuration, used packages and modules.
 `epson_201401w` — driver for EPSON printers (series L456, L455, L366, L365, 
 L362, L360, L312, L310, L222, L220, L132, L130).
 
+`hfst` — [Helsinki Finite-State Technology](https://hfst.github.io) tools and
+libraries.
+
 `hyperCanary` - Canary build of [Hyper](https://hyper.is) terminal.
 
 `memento` — [An mpv-based video player for studying Japanese](https://github.com/ripose-jp/Memento).
