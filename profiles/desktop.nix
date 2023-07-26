@@ -2,7 +2,6 @@
 
 {
   networking.networkmanager.enable = true;
-  networking.wireguard.enable = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
   i18n.defaultLocale = "ru_RU.UTF-8";
@@ -22,6 +21,8 @@
 
   services.kdeconnect.enable = true;
 
+  # Allow tunnelling all traffic to Wireguard
+  networking.firewall.checkReversePath = "loose";
   networking.hosts = {
     # Please support Ukraine
     "::1" = [ "redirectrussia.org" ];
