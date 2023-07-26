@@ -1,4 +1,6 @@
 (require 'yaml)
+(require 'dash)
+(require 'color)
 
 (defun hex-color (x)
   (concat "#"
@@ -18,6 +20,30 @@
                    d0 d1 d2 d3 d4 d5 d6 d7))
      ,@body))
 
+(defun hex-to-rgb (str)
+  (--map (/ (string-to-number it 16) 255.0)
+         (seq-partition (substring str 1) 2)))
+
+(defun rgb-to-hex (rgb)
+  (apply (-on (-partial #'format "#%02x%02x%02x")
+              (-partial #'* 255))
+         rgb))
+
+(defun edit-in-hsl (fn hex)
+  (->> hex
+       (hex-to-rgb)
+       (apply #'color-rgb-to-hsl)
+       (apply fn)
+       (apply #'color-hsl-to-rgb)
+       (rgb-to-hex)))
+
+(defun lighten (d hex)
+  (edit-in-hsl (-cut color-lighten-hsl <> <> <> (* 100 d))
+               hex))
+
+(defun darken (d hex)
+  (lighten (* -1 d) hex))
+
 (defun generate-theme (config-path)
   (with-temp-buffer
     (insert-file-contents config-path)
@@ -28,7 +54,7 @@
         (terpri)
         (pp `(custom-theme-set-faces (quote ,theme-name)
               '(default ((((type tty))) 
-                         (t (:background ,a0 :foreground ,c7))))
+                         (t (:background ,a0 :foreground ,a7))))
               '(cursor ((t (:background ,d5))))
 	      '(success ((t (:foreground ,d6))))
               '(error ((t (:foreground ,d2 :weight bold))))
@@ -41,12 +67,30 @@
               '(match ((t (:foreground ,d4 :underline t))))
 	      '(line-number ((t (:foreground ,a2))))
 	      '(line-number-current-line ((t (:foreground ,a3))))
-              '(window-divider ((t (:background ,a0 :foreground ,a3))))
+              '(window-divider ((t (:background ,(darken 0.2 a0)
+                                    :foreground ,(darken 0.2 a0)))))
               '(vertical-border ((t (:inherit window-divider))))
               '(tooltip ((t (:background ,d0 :foreground ,a0))))
               '(widget-inactive ((t (:foreground ,a2))))
               '(widget-field ((t (:background ,a0 :foreground ,c7))))
               '(help-key-binding ((t (:background ,a0 :foreground ,d0))))
+
+              '(ansi-color-black ((t (:background ,a0 :foreground ,a0))))
+              '(ansi-color-red ((t (:background ,b2 :foreground ,b2))))
+              '(ansi-color-green ((t (:background ,d4 :foreground ,d4))))
+              '(ansi-color-yellow ((t (:background ,d7 :foreground ,d7))))
+              '(ansi-color-blue ((t (:background ,b3 :foreground ,b3))))
+              '(ansi-color-magenta ((t (:background ,d4 :foreground ,d4))))
+              '(ansi-color-cyan ((t (:background ,b4 :foreground ,b4))))
+              '(ansi-color-white ((t (:background ,a7 :foreground ,a7))))
+              '(ansi-color-bright-black ((t (:background ,a3 :foreground ,a3))))
+              '(ansi-color-bright-red ((t (:background ,d5 :foreground ,d5))))
+              '(ansi-color-bright-green ((t (:background ,d4 :foreground ,d4))))
+              '(ansi-color-bright-yellow ((t (:background ,d7 :foreground ,d7))))
+              '(ansi-color-bright-blue ((t (:background ,b3 :foreground ,b3))))
+              '(ansi-color-bright-magenta ((t (:background ,d4 :foreground ,d4))))
+              '(ansi-color-bright-cyan ((t (:background ,d3 :foreground ,d3))))
+              '(ansi-color-bright-white ((t (:background ,b7 :foreground ,b7))))
 
               '(tab-bar ((t (:background ,a1))))
               '(tab-bar-tab ((t (:background ,a2))))
