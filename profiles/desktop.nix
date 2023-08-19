@@ -28,6 +28,11 @@
     "::1" = [ "redirectrussia.org" ];
   };
 
+  services.openssh = {
+    enable = true;
+    openFirewall = false;
+  };
+
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
