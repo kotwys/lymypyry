@@ -84,7 +84,7 @@
         </fontconfig>
       '';
     };
-    fonts = with pkgs; [
+    packages = with pkgs; [
       corefonts
       open-sans
       noto-fonts

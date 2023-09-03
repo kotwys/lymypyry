@@ -7,8 +7,8 @@ let
     hfst = callPackage ./development/libraries/hfst { };
     memento = pkgs.libsForQt5.callPackage ./applications/video/memento.nix { };
     pascalabcnet = callPackage ./development/compilers/pascalabcnet { };
-    electron-mksnapshot = callPackage ./development/tools/electron/mksnapshot { } "25.1.1" {
-      x86_64-linux = "1xwkqzjxvqq7l7wghrh30xsbs71ywmzszjp64kr6i1xkp44zwsii";
+    electron-mksnapshot = callPackage ./development/tools/electron/mksnapshot { } "25.3.1" {
+      x86_64-linux = "9df13445da3eebe19eab4310669a7271ba4643542aa792dffbb25ecca0205c16";
     };
     hyperCanary = callPackage ./applications/terminal-emulators/hyper {
       version = "4.0.0-canary.5";

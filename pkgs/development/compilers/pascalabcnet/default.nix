@@ -14,11 +14,11 @@ let
 in
 stdenv.mkDerivation {
   pname = "pascalabcnet";
-  version = "3.8.3";
+  version = "3.9.0";
   
   src = fetchzip' {
-    url = "http://web.archive.org/web/20230205091447/http://pascalabc.net/downloads/PABCNETC.zip";
-    sha256 = "8l6BRXqkXwYzYhfaJHBu7dSGhsR4QeQ7XAeV9JP9VKQ=";
+    url = "http://web.archive.org/web/20230822161611/https://pascalabc.net/downloads/PABCNETC.zip";
+    sha256 = "0yh16v0jigypkcbbq5j185pysr5fw6wz1c3d5db75mmrvyl2my2s";
     stripRoot = false;
   };
   
@@ -31,10 +31,8 @@ stdenv.mkDerivation {
     cp -r $src/* "$out/lib/$pname"
 
     for exe in pabcnetc pabcnetcclear; do
-      cat >> "$out/bin/$exe" <<EOF
-#!/bin/sh
-"${mono}/bin/mono" "$out/lib/$pname/$exe.exe" "\$@"
-EOF
+      makeWrapper ${mono}/bin/mono $out/bin/$exe \
+        --add-flags "$out/lib/$pname/$exe.exe"
       chmod +x "$out/bin/$exe"
     done
   '';
