@@ -4,4 +4,9 @@
 ;; Automatically try to start language server for these modes.
 (mapc (lambda (hook)
         (add-hook hook #'lsp-deferred))
-      '(rust-mode-hook rust-ts-mode-hook))
+      '(rust-mode-hook haxe-mode-hook))
+
+(with-eval-after-load 'lsp-haxe
+  (custom-set-variables
+   `(lsp-clients--haxe-server-path
+     ,(expand-file-name "~/haxe-language-server.js"))))

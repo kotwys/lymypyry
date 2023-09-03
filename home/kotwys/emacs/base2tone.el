@@ -64,6 +64,7 @@
               '(region ((t (:background ,a1))))
               '(secondary-selection ((t (:background ,b0))))
 	      '(highlight ((t (:background ,a1))))
+              '(lazy-highlight ((t (:background ,a2))))
               '(match ((t (:foreground ,d4 :underline t))))
 	      '(line-number ((t (:foreground ,a2))))
 	      '(line-number-current-line ((t (:foreground ,a3))))
@@ -74,6 +75,8 @@
               '(widget-inactive ((t (:foreground ,a2))))
               '(widget-field ((t (:background ,a0 :foreground ,c7))))
               '(help-key-binding ((t (:background ,a0 :foreground ,d0))))
+              '(completions-common-part ((t (:foreground ,d7))))
+              '(meow-position-highlight-number ((t (:background ,a1 :foreground ,d2))))
 
               '(ansi-color-black ((t (:background ,a0 :foreground ,a0))))
               '(ansi-color-red ((t (:background ,b2 :foreground ,b2))))
@@ -135,7 +138,8 @@
               '(company-tooltip-selection ((t (:background ,a1))))
               '(company-tooltip-scrollbar-thumb ((t (:background ,d0))))
               '(company-tooltip-scrollbar-track ((t (:background ,a0))))
-              '(flymake-error ((t (:underline t))))
+              '(flycheck-error ((t (:underline t))))
+              '(lsp-flycheck-warning-unnecessary-face ((t (:underline t))))
               '(lsp-lens-face ((t (:foreground ,a3))))
 
               '(nix-constant-face ((t (:foreground ,d5))))
