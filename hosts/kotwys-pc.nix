@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
@@ -33,6 +33,7 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   networking.hostName = "kotwys-pc";
+  i18n.defaultLocale = lib.mkForce "fi_FI.UTF-8";
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
