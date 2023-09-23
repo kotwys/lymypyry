@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   networking.networkmanager.enable = true;
@@ -113,6 +113,9 @@
     extraGroups = [ "wheel" "adbusers" ];
     shell = pkgs.fish;
     password = "welcome";
+    description = ({
+      "ja_JP.UTF-8" = "ミカイロ";
+    })."${config.i18n.defaultLocale}" or "Mikajlo";
   };
 
   nixpkgs.config.allowUnfree = true;
