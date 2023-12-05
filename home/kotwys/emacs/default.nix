@@ -23,7 +23,7 @@ let
       inherit (ps.melpaPackages)
         meow powerline magit yaml company lsp-mode lsp-ui meson-mode
         flycheck yasnippet clojure-mode rust-mode nix-mode markdown-mode
-        haskell-mode treesit-auto bqn-mode php-mode git-gutter
+        haskell-mode treesit-auto bqn-mode git-gutter svelte-mode
         htmlize;
       treesit = ps.treesit-grammars.with-grammars (grammars: (
         lib.attrsets.attrVals
