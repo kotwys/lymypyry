@@ -57,16 +57,8 @@
         });
 
       hosts.valo.modules =
-        [ ./hosts/valo.nix
-          ({ ... }: {
-            containers.lamp = {
-              bindMounts."/var/www" = {
-                hostPath = "/home/kotwys/www";
-              };
-              config = import ./profiles/lamp.nix;
-            };
-          })
-        ] ++ (builtins.attrValues {
+        [ ./hosts/valo.nix ]
+        ++ (builtins.attrValues {
           inherit (suites) uefi desktop gnome wine;
         });
 
