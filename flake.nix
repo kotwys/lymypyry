@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/v1.3.1";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/v1.4.0";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,11 +30,7 @@
         nixpkgs.nixosModules.notDetected
         home-manager.nixosModules.home-manager
         ({ pkgs, ... }: {
-          nix = {
-            package = pkgs.nixFlakes;
-            generateRegistryFromInputs = true;
-            generateNixPathFromInputs = true;
-          };
+          nix.generateRegistryFromInputs = true;
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;

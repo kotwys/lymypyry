@@ -120,8 +120,6 @@
     })."${config.i18n.defaultLocale}" or "Mikajlo";
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   home-manager.users.kotwys = import ../home/kotwys;
 
   system.stateVersion = "21.05";
