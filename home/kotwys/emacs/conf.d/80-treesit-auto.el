@@ -6,3 +6,4 @@
                     (not (eq (treesit-auto-recipe-lang r) 'html)))
                   treesit-auto-recipe-list))
 (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-ts-mode))

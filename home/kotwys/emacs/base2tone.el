@@ -148,6 +148,11 @@
               '(org-document-title ((t (:foreground ,d5 :weight bold))))
               '(org-footnote ((t (:foreground ,d7 :slant italic))))
 
+              '(neo-file-link-face ((t (:foreground ,a7))))
+              '(neo-dir-link-face ((t (:foreground ,d5))))
+              '(neo-expand-btn-face ((t (:foreground ,d7))))
+              '(neo-root-dir-face ((t (:foreground ,b2))))
+
 	      '(minibuffer-prompt ((t (:foreground ,d0))))
 	      '(show-paren-match ((t (:background ,a0 :foreground ,d4 :underline t))))
               '(show-paren-mismatch ((t (:background ,d2 :foreground ,a0))))))

@@ -13,7 +13,7 @@ let
 
   treesit-default-grammars = [
     "bash" "c" "c-sharp" "cmake" "cpp" "css" "elisp" "html"
-    "java" "javascript" "json" "kotlin" "nix" "python" "ruby" "rust"
+    "java" "javascript" "json" "kotlin" "lua" "nix" "python" "ruby" "rust"
     "toml" "tsx" "typescript" "yaml"
   ];
 
@@ -23,8 +23,8 @@ let
       inherit (ps.melpaPackages)
         meow powerline magit yaml company lsp-mode lsp-ui meson-mode
         flycheck yasnippet clojure-mode rust-mode nix-mode markdown-mode
-        haskell-mode treesit-auto bqn-mode git-gutter svelte-mode
-        htmlize;
+        haskell-mode treesit-auto bqn-mode git-gutter htmlize
+        neotree popwin;
       treesit = ps.treesit-grammars.with-grammars (grammars: (
         lib.attrsets.attrVals
           (map (x: "tree-sitter-${x}") treesit-default-grammars)
