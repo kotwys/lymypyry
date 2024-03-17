@@ -15,19 +15,20 @@
     fsType = "ext4";
   };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/05A3-3156";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/05A3-3156";
+    fsType = "vfat";
+    options = ["umask=0077"];
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/b346519e-2d43-4ad8-8c3d-cac9653742cb";
-      fsType = "ext4";
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/b346519e-2d43-4ad8-8c3d-cac9653742cb";
+    fsType = "ext4";
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/dce8134d-487e-41d9-8ce9-68dfc21eee08"; }
-    ];
+  swapDevices = [
+    { device = "/dev/disk/by-uuid/dce8134d-487e-41d9-8ce9-68dfc21eee08"; }
+  ];
 
   boot.extraModulePackages = with pkgs.linuxPackages; [ rtl8821cu ];
   hardware.cpu.amd.updateMicrocode = true;

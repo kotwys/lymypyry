@@ -19,6 +19,7 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8FB5-49BC";
     fsType = "vfat";
+    options = ["umask=0077"];
   };
 
   fileSystems."/home" = {
