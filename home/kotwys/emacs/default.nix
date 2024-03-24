@@ -33,6 +33,13 @@ let
     }))
   ];
   mkTheme = pkgs.callPackage ./base2tone.nix { emacs = emacs'; };
+  siteLisp = {
+    "pascal-ts-mode.el" = ./site-lisp/pascal-ts-mode.el;
+    "ttl-mode.el" = pkgs.fetchurl {
+      url = "https://github.com/jeeger/ttl-mode/raw/04b86536e0363a78c11ca10ac83096b28fc5fbf0/ttl-mode.el";
+      sha256 = "0ha9f4gcmlxmg2vi5krqjx8cnzynrryjr7dpssl1m2p7956m1r80";
+    };
+  };
 in
 {
   programs.emacs = {
@@ -40,12 +47,15 @@ in
     package = emacs';
   };
 
-  xdg.configFile."emacs/init.el".source = ./init.el;
-  xdg.configFile."emacs/themes/base2tone-motel-theme.el".source =
-    mkTheme {
-      themeName = "motel";
-      sha256 = "0qqy924i6m00y1b3f4l1798a5bglyzdzhd46pjrfc36gdbddg640";
-    };
-  xdg.configFile."emacs/conf.d/".source = ./conf.d;
-  xdg.configFile."emacs/site-lisp/".source = ./site-lisp;
+  xdg.configFile = {
+    "emacs/init.el".source = ./init.el;
+    "emacs/themes/base2tone-motel-theme.el".source =
+      mkTheme {
+        themeName = "motel";
+        sha256 = "0qqy924i6m00y1b3f4l1798a5bglyzdzhd46pjrfc36gdbddg640";
+      };
+    "emacs/conf.d/".source = ./conf.d;
+  } // (lib.concatMapAttrs (name: value: {
+    "emacs/site-lisp/${name}".source = value;
+  }) siteLisp);
 }
