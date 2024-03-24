@@ -38,10 +38,6 @@
     };
   };
 
-  programs.gpg.enable = true;
-  services.gpg-agent.enable = true;
-  programs.vscode.enable = true;
-
   home.file.".XCompose".source = ./XCompose;
 
   xdg.enable = true;

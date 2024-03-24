@@ -109,6 +109,12 @@
     helix
   ];
 
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+    enableSSHSupport = true;
+  };
+
   users.users.kotwys = {
     createHome = true;
     isNormalUser = true;
