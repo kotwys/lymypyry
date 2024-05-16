@@ -4,9 +4,9 @@
 ;; Automatically try to start language server for these modes.
 (mapc (lambda (hook)
         (add-hook hook #'lsp-deferred))
-      '(rust-mode-hook haxe-mode-hook))
+      '(rust-mode-hook kotlin-mode-hook))
 
-(with-eval-after-load 'lsp-haxe
+(with-eval-after-load 'lsp-kotlin
   (custom-set-variables
-   `(lsp-clients--haxe-server-path
-     ,(expand-file-name "~/haxe-language-server.js"))))
+   `(lsp-clients-kotlin-server-executable
+     ,(expand-file-name "~/.local/share/kotlin-language-server/bin/kotlin-language-server"))))

@@ -24,7 +24,7 @@ let
         meow powerline magit yaml company lsp-mode lsp-ui meson-mode
         flycheck yasnippet clojure-mode rust-mode nix-mode markdown-mode
         haskell-mode treesit-auto bqn-mode git-gutter htmlize
-        neotree popwin;
+        neotree popwin kotlin-mode;
       treesit = ps.treesit-grammars.with-grammars (grammars: (
         lib.attrsets.attrVals
           (map (x: "tree-sitter-${x}") treesit-default-grammars)

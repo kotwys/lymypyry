@@ -22,6 +22,7 @@
     TEXMFVAR = "${config.xdg.cacheHome}/texlive/texmf-var";
     TEXMFCONFIG = "${config.xdg.configHome}/texlive/texmf-config";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
+    GRADLE_USER_HOME = "${config.xdg.dataHome}/gradle";
     EDITOR = "emacs";
   };
 
