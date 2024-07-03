@@ -36,6 +36,5 @@
   i18n.defaultLocale = lib.mkForce "ja_JP.UTF-8";
 
   hardware.cpu.amd.updateMicrocode = true;
-  hardware.opengl.driSupport = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 }
