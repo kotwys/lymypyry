@@ -138,7 +138,6 @@
               '(company-tooltip-selection ((t (:background ,a1))))
               '(company-tooltip-scrollbar-thumb ((t (:background ,d0))))
               '(company-tooltip-scrollbar-track ((t (:background ,a0))))
-              '(flycheck-error ((t (:underline t))))
               '(lsp-flycheck-warning-unnecessary-face ((t (:underline t))))
               '(lsp-lens-face ((t (:foreground ,a3))))
 

@@ -15,8 +15,10 @@
 
   services.xserver = {
     enable = true;
-    layout = "us,ru";
-    xkbOptions = "grp:alt_shift_toggle,ctrl:swapcaps";
+    xkb = {
+      layout = "us,ru";
+      options = "grp:alt_shift_toggle,ctrl:swapcaps";
+    };
   };
 
   services.kdeconnect.enable = true;
@@ -111,7 +113,7 @@
 
   programs.gnupg.agent = {
     enable = true;
-    pinentryFlavor = "curses";
+    pinentryPackage = pkgs.pinentry-curses;
     enableSSHSupport = true;
   };
 

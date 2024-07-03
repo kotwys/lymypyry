@@ -6,8 +6,8 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-splash-screen t)
 
-(keymap-global-set "<mouse-5>" 'custom-scroll-up)
-(keymap-global-set "<mouse-4>" 'custom-scroll-down)
+(keymap-global-set "<wheel-down>" 'custom-scroll-up)
+(keymap-global-set "<wheel-up>" 'custom-scroll-down)
 (keymap-global-unset "C-<down-mouse-1>")
 (keymap-global-unset "C-<down-mouse-2>")
 (keymap-global-unset "C-<down-mouse-3>")
