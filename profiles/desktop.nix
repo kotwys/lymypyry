@@ -10,8 +10,6 @@
     font = "latarcyrheb-sun16";
     useXkbConfig = true;
   };
-  i18n.inputMethod.enabled = "ibus";
-  i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [ mozc libpinyin ];
 
   services.xserver = {
     enable = true;

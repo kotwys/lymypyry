@@ -7,6 +7,7 @@ utils.lib.exportModules [
   ./profiles/gaming.nix
   ./profiles/gnome.nix
   ./profiles/grub.nix
+  ./profiles/ibus.nix
   ./profiles/uefi.nix
   ./profiles/wine.nix
 ] // {

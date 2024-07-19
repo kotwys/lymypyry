@@ -43,7 +43,7 @@
       hosts.kotwys-pc.modules =
         [ ./hosts/kotwys-pc.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gaming gnome wine;
+          inherit (suites) uefi desktop gaming gnome wine ibus;
         });
 
       hosts.kotwys-lap.modules =
@@ -55,7 +55,7 @@
       hosts.valo.modules =
         [ ./hosts/valo.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gnome wine;
+          inherit (suites) uefi desktop gnome wine ibus;
         });
 
       outputsBuilder = channels: {
