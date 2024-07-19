@@ -34,7 +34,7 @@
   hardware.cpu.amd.updateMicrocode = true;
 
   networking.hostName = "kotwys-pc";
-  i18n.defaultLocale = lib.mkForce "fi_FI.UTF-8";
+  i18n.defaultLocale = lib.mkForce "ja_JP.UTF-8";
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 

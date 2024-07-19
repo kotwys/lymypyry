@@ -102,7 +102,7 @@
     shell = pkgs.fish;
     password = "welcome";
     description = ({
-      "ja_JP.UTF-8" = "ミカイロ";
+      "ja_JP.UTF-8" = "美瑰郎";
     })."${config.i18n.defaultLocale}" or "Mikajlo";
   };
 
