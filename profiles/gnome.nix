@@ -13,6 +13,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    libreoffice-fresh
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell

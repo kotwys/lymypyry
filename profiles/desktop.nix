@@ -103,7 +103,6 @@
     wl-clipboard
     firefox
     vlc
-    libreoffice-fresh
     wget
     git
     helix
