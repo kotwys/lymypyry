@@ -10,9 +10,6 @@
 
   home.packages = builtins.attrValues {
     inherit (pkgs) yq textql;
-    vivaldi = pkgs.vivaldi.override {
-      proprietaryCodecs = true;
-    };
   };
 
   home.sessionPath = [ "$HOME/.local/bin" ];

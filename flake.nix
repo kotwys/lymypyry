@@ -43,7 +43,7 @@
       hosts.kotwys-pc.modules =
         [ ./hosts/kotwys-pc.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gaming gnome wine ibus;
+          inherit (suites) uefi desktop gaming kde wine fcitx;
         });
 
       hosts.kotwys-lap.modules =
