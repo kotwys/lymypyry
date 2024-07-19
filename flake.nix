@@ -30,6 +30,7 @@
         nixpkgs.nixosModules.notDetected
         home-manager.nixosModules.home-manager
         ({ pkgs, ... }: {
+          nix.package = pkgs.lix;
           nix.generateRegistryFromInputs = true;
           home-manager = {
             useGlobalPkgs = true;
