@@ -39,6 +39,10 @@
   home.file.".XCompose".source = ./XCompose;
 
   xdg.enable = true;
+  fonts.fontconfig.enable = false;
+  xdg.configFile."fontconfig/conf.d/60-system-fonts.conf" = {
+    source = ./60-system-fonts.conf;
+  };
   
   home.stateVersion = "21.05";
 }

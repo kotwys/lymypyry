@@ -66,25 +66,6 @@
         serif = [ "Noto Serif" "DejaVu Serif" "Noto Color Emoji" ];
         monospace = [ "Cascadia Code" "Noto Color Emoji" ];
       };
-      localConf = ''
-        <?xml version="1.0"?>
-        <!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
-        <fontconfig>
-        <match target="pattern">
-          <test qual="any" name="family"><string>-apple-system</string></test>
-          <edit name="family" mode="prepend" binding="same">
-            <string>Ubuntu</string>
-          </edit>
-        </match>
-        <match target="pattern">
-          <test qual="any" name="family"><string>Cascadia Code</string></test>
-          <edit name="family" mode="append" binding="weak">
-            <!-- Math symbols -->
-            <string>JetBrains Mono</string>
-          </edit>
-        </match>
-        </fontconfig>
-      '';
     };
     packages = with pkgs; [
       corefonts
