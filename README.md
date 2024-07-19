@@ -22,18 +22,6 @@ libraries.
 
 ### Modules
 
-`kdeconnect` — adds the KDEConnect service with an appropriate firewall 
-configuration.
-
-```nix
-{
-  services.kdeconnect = {
-    enable = true;
-    package = pkgs.kdeconnect; # also works with gsconnect
-  };
-}
-```
-
 `extra-xkb-options` — allow to add custom XKB options (as symbols).
 
 This effectively creates an overlay with modified `xorg` which requires

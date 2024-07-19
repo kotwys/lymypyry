@@ -63,6 +63,6 @@
           pkgs = channels.nixpkgs;
         };
       };
-      nixosModules = { inherit (suites) kdeconnect extra-xkb-options; };
+      nixosModules = { inherit (suites) extra-xkb-options; };
     };
 }

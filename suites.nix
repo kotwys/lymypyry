@@ -1,7 +1,6 @@
 { utils }:
 
 utils.lib.exportModules [
-  ./modules/kdeconnect.nix
   ./modules/extra-xkb-options.nix
 
   ./profiles/desktop.nix

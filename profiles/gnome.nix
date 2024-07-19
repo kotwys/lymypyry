@@ -19,5 +19,5 @@
     gnomeExtensions.dash-to-dock
   ];
 
-  services.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;
+  programs.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;
 }

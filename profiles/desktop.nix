@@ -21,7 +21,7 @@
     };
   };
 
-  services.kdeconnect.enable = true;
+  programs.kdeconnect.enable = true;
 
   # Allow tunnelling all traffic to Wireguard
   networking.firewall.checkReversePath = "loose";
