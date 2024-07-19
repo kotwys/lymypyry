@@ -5,7 +5,6 @@ let
 in
 {
   home.packages = [ pkgs.wezterm ];
-  home.sessionVariables.XCURSOR_THEME = "Adwaita";
 
   xdg.configFile."wezterm/wezterm.lua".source = ./wezterm.lua;
   xdg.configFile."wezterm/colors/Base2Tone Motel Dark.toml".source =
