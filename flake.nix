@@ -56,7 +56,7 @@
       hosts.valo.modules =
         [ ./hosts/valo.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gnome wine ibus;
+          inherit (suites) uefi desktop kde wine fcitx;
         });
 
       outputsBuilder = channels: {
