@@ -60,12 +60,13 @@ config.window_frame = {
 config.window_background_opacity = 0.95
 config.enable_scroll_bar = true
 config.font = wezterm.font_with_fallback {
-  'Cascadia Code',
-  'VL Gothic' -- Japanese
+  {
+    family = 'ui-monospace',
+  },
+  'Meiryo UI' -- Japanese
 }
 config.font_size = 10
 config.line_height = 1.4
-config.harfbuzz_features = { 'ss01' }
 config.freetype_load_target = 'Light'
 config.underline_position = '-0.2cell'
 

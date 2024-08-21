@@ -1,4 +1,6 @@
-(set-frame-font "Cascadia Code-10" nil t)
+;; -*- lexical-binding: t -*-
+
+(set-frame-font "PT Mono-10" nil t)
 (set-face-attribute 'default nil :height 120)
 
 (menu-bar-mode -1)
