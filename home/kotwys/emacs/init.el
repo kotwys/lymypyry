@@ -20,6 +20,11 @@
   (interactive)
   (scroll-up 2))
 
+(define-key input-decode-map (kbd "M-[ 1 ; 3 D") (kbd "M-<left>"))
+(define-key input-decode-map (kbd "M-[ 1 ; 3 C") (kbd "M-<right>"))
+(define-key input-decode-map (kbd "M-[ 1 ; 5 D") (kbd "C-<left>"))
+(define-key input-decode-map (kbd "M-[ 1 ; 5 C") (kbd "C-<right>"))
+
 (transient-mark-mode t)
 
 (set-language-environment "UTF-8")
