@@ -10,8 +10,8 @@ utils.lib.exportModules [
   ./profiles/grub.nix
   ./profiles/ibus.nix
   ./profiles/kde.nix
-  ./profiles/shadowsocks.nix
   ./profiles/uefi.nix
+  ./profiles/v2ray.nix
   ./profiles/virtualbox.nix
   ./profiles/wine.nix
 ] // {

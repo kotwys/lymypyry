@@ -44,7 +44,7 @@
       hosts.kotwys-pc.modules =
         [ ./hosts/kotwys-pc.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gaming kde wine fcitx shadowsocks virtualbox;
+          inherit (suites) uefi desktop gaming kde wine fcitx v2ray virtualbox;
         });
 
       hosts.kotwys-lap.modules =
@@ -56,7 +56,7 @@
       hosts.valo.modules =
         [ ./hosts/valo.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop kde wine fcitx shadowsocks;
+          inherit (suites) uefi desktop kde wine fcitx v2ray;
         });
 
       outputsBuilder = channels: {
