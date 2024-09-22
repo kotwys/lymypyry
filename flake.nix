@@ -44,7 +44,7 @@
       hosts.kotwys-pc.modules =
         [ ./hosts/kotwys-pc.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gaming kde wine fcitx shadowsocks;
+          inherit (suites) uefi desktop gaming kde wine fcitx shadowsocks virtualbox;
         });
 
       hosts.kotwys-lap.modules =

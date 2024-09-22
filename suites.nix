@@ -12,6 +12,7 @@ utils.lib.exportModules [
   ./profiles/kde.nix
   ./profiles/shadowsocks.nix
   ./profiles/uefi.nix
+  ./profiles/virtualbox.nix
   ./profiles/wine.nix
 ] // {
   hm = utils.lib.exportModules [
