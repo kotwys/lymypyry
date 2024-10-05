@@ -1,44 +1,37 @@
 ;; -*- lexical-binding: t -*-
-
-(set-frame-font "PT Mono-10" nil t)
-(set-face-attribute 'default nil :height 120)
-
-(menu-bar-mode -1)
-(xterm-mouse-mode 1)
-(fset 'yes-or-no-p 'y-or-n-p)
-(setq inhibit-splash-screen t)
-
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file)
 
-(keymap-global-set "<wheel-down>" 'custom-scroll-up)
-(keymap-global-set "<wheel-up>" 'custom-scroll-down)
-(keymap-global-unset "C-<down-mouse-1>")
-(keymap-global-unset "C-<down-mouse-2>")
-(keymap-global-unset "C-<down-mouse-3>")
-(defun custom-scroll-down ()
-  (interactive)
-  (scroll-down 2))
-(defun custom-scroll-up ()
-  (interactive)
-  (scroll-up 2))
+(setq default-frame-alist `((width . 96)
+                            (height . 24)
+                            ,@default-frame-alist))
 
-(define-key input-decode-map (kbd "M-[ 1 ; 3 D") (kbd "M-<left>"))
-(define-key input-decode-map (kbd "M-[ 1 ; 3 C") (kbd "M-<right>"))
-(define-key input-decode-map (kbd "M-[ 1 ; 5 D") (kbd "C-<left>"))
-(define-key input-decode-map (kbd "M-[ 1 ; 5 C") (kbd "C-<right>"))
+(set-face-attribute 'default nil
+                    :font "JetBrains Mono"
+                    :height 105)
+(dolist (script '(kana han))
+  (set-fontset-font t script "Meiryo UI"))
 
+(setq inhibit-splash-screen t)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(fringe-mode 0)
+
+(xterm-mouse-mode 1)
+(fset 'yes-or-no-p 'y-or-n-p)
+
+(column-number-mode 1)
+(line-number-mode 1)
 (transient-mark-mode t)
 
 (set-language-environment "UTF-8")
 
 (show-paren-mode 1)
 (setq show-paren-when-point-inside-paren t)
+
 (setq make-backup-files nil)
 (setq auto-save-default nil)
-
-(column-number-mode 1)
-(line-number-mode 1)
 
 (setq-default scroll-conservatively 100)
 
@@ -46,9 +39,7 @@
 
 (setq-default fill-column 80)
 (setq-default truncate-lines t)
-(add-hook 'text-mode-hook
-          (lambda ()
-            (setq truncate-lines nil)))
+(add-hook 'text-mode-hook (lambda () (setq truncate-lines nil)))
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
 (setq-default display-line-numbers-width 3)
@@ -65,5 +56,4 @@
 
 (mapc (lambda (path)
         (load-file path))
-      (directory-files (concat user-emacs-directory "/conf.d/")
-                       t "\.el$"))
+      (directory-files (concat user-emacs-directory "/conf.d/") t "\.el$"))

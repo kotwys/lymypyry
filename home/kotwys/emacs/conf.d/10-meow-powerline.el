@@ -92,9 +92,7 @@
    '("." . repeat)
    '("/" . meow-visit)
    '("<escape>" . ignore))
-  (meow-global-mode 1)
-  (defun meow--on-exit ()
-    (send-string-to-terminal "\e[5 q")))
+  (meow-global-mode 1))
 
 (defconst my/meow-state-names
   '((insert . "入力")

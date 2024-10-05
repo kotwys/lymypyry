@@ -17,14 +17,14 @@ let
     "toml" "tsx" "typescript" "yaml"
   ];
 
-  emacs' = lib.pipe pkgs.emacs-git-nox [
+  emacs' = lib.pipe pkgs.emacs-git [
     pkgs.emacsPackagesFor
     (x: x.emacsWithPackages (ps: builtins.attrValues {
       inherit (ps.melpaPackages)
         meow powerline magit yaml company lsp-mode lsp-ui meson-mode
         flycheck clojure-mode cider rust-mode nix-mode markdown-mode
         haskell-mode treesit-auto bqn-mode git-gutter htmlize
-        popwin kotlin-mode atomic-chrome smartparens;
+        popwin kotlin-mode atomic-chrome smartparens ligature;
       treesit = ps.treesit-grammars.with-grammars (grammars: (
         lib.attrsets.attrVals
           (map (x: "tree-sitter-${x}") treesit-default-grammars)
