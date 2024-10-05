@@ -3,7 +3,11 @@
   :mode
   ("\\.clj\\'" . clojure-mode)
   ("\\.cljs\\'" . clojurescript-mode)
-  ("\\.cljc\\'" . clojurec-mode))
+  ("\\.cljc\\'" . clojurec-mode)
+
+  :custom-face
+  (clojure-keyword-face ((t (:slant italic :inherit font-lock-constant-face)))))
+
 (use-package markdown-mode :mode "\\.md\\'")
 (use-package nix-mode :mode "\\.nix\\'")
 (use-package pascal-ts-mode :mode "\\.pas\\'")
