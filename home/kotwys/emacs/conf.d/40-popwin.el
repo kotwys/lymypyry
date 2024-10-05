@@ -1,4 +1,3 @@
-(add-hook 'after-init-hook
-          (lambda ()
-            (require 'popwin)
-            (popwin-mode 1)))
+;; -*- lexical-binding: t -*-
+(use-package popwin
+  :hook (after-init . popwin-mode))

@@ -8,6 +8,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-splash-screen t)
 
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file)
+
 (keymap-global-set "<wheel-down>" 'custom-scroll-up)
 (keymap-global-set "<wheel-up>" 'custom-scroll-down)
 (keymap-global-unset "C-<down-mouse-1>")
@@ -55,10 +58,8 @@
           (lambda ()
             (setq tab-width 2)))
 
-(add-to-list 'load-path
-             (concat user-emacs-directory "site-lisp/"))
-(add-to-list 'custom-theme-load-path
-             (concat user-emacs-directory "themes/"))
+(add-to-list 'load-path (concat user-emacs-directory "site-lisp/"))
+(add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
 
 (load-theme 'base2tone-motel t)
 

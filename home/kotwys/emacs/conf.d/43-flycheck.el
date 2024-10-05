@@ -1,4 +1,4 @@
-(autoload 'global-flycheck-mode "flycheck" nil t)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
-(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+;; -*- lexical-binding: t -*-
+(use-package flycheck
+  :hook (prog-mode . flycheck-mode)
+  :custom (flycheck-disabled-checkers '(emacs-lisp-checkdoc)))

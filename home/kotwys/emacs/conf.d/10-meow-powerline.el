@@ -1,4 +1,16 @@
-(defun meow-setup ()
+;; -*- lexical-binding: t -*-
+(use-package meow
+  :defines
+  meow-cheatsheet-layout meow-cheatsheet-layout-qwerty
+  meow--current-state
+
+  :functions
+  meow-global-mode
+  meow-motion-overwrite-define-key
+  meow-leader-define-key
+  meow-normal-define-key
+
+  :config
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
   (meow-motion-overwrite-define-key
    '("j" . meow-next)
@@ -79,52 +91,49 @@
    '("z" . meow-pop-selection)
    '("." . repeat)
    '("/" . meow-visit)
-   '("<escape>" . ignore)))
+   '("<escape>" . ignore))
+  (meow-global-mode 1)
+  (defun meow--on-exit ()
+    (send-string-to-terminal "\e[5 q")))
 
-(require 'meow)
-(meow-setup)
-(meow-global-mode 1)
+(defconst my/meow-state-names
+  '((insert . "入力")
+    (normal . "通常")
+    (motion . "動き")
+    (keypad . "キー")
+    (beacon . "狼火")))
 
-(setq meow-cursor-type-normal 'bar)
-(setq meow-cursor-type-motion 'bar)
-(defun meow--on-exit ()
-  (send-string-to-terminal "\e[5 q"))
+(use-package powerline
+  :demand t
+  :after meow
+  :functions powerline-raw
 
-(defun clipboard-copy (start end)
-  "Copy the selected region to the clipboard using wl-copy"
-  (interactive "r")
-  (cond
-   ((not (use-region-p))
-    (message (propertize
-              "The region is not accessible."
-              'face 'error)))
-   ((not (string= (getenv "XDG_SESSION_TYPE") "wayland"))
-    (message (propertize
-              "The session is not a Wayland session."
-              'face 'error)))
-   (t (let ((process (make-process
-                      :name "wl-copy"
-                      :buffer nil
-                      :command '("wl-copy")
-                      :connection-type 'pipe)))
-        (process-send-region process start end)
-        (process-send-eof process)))))
+  :config
+  (defun powerline-state (&optional face pad)
+    (powerline-raw
+     (concat (alist-get meow--current-state my/meow-state-names "不明") " ")
+     face pad))
 
-(defun clipboard-paste ()
-  "Pastes the contents of the clipboard at the current point"
-  (interactive)
-  (cond
-   ((not (string= (getenv "XDG_SESSION_TYPE") "wayland"))
-    (message (propertize
-              "The session is not a Wayland session."
-              'face 'error)))
-   (t (let ((content (with-temp-buffer
-                       (let ((process (make-process
-                                       :name "wl-paste"
-                                       :buffer (current-buffer)
-                                       :sentinel #'ignore
-                                       :command '("wl-paste" "-n")
-                                       :connection-type '(nil . pipe))))
-                         (while (accept-process-output process))
-                         (buffer-string)))))
-        (insert content)))))
+  (setq-default
+   mode-line-format
+   '("%e"
+     (:eval
+      (let* ((active (powerline-selected-window-active))
+             (mode-face 'tooltip)
+             (mid-face (if active 'powerline-active1 'powerline-inactive1))
+             (right-face1 (if active 'powerline-active2 'powerline-inactive2))
+             (right-face2 (if active 'powerline-active0 'powerline-inactive0))
+             (lhs (list (when active
+                          (powerline-state mode-face 'l))
+                        (powerline-buffer-id mid-face 'r)))
+             (rhs (list (powerline-major-mode mid-face 'l)
+                        (powerline-raw " " mid-face 'l)
+                        (powerline-minor-modes mid-face 'l)
+                        (powerline-raw " " mid-face 'r)
+                        (powerline-raw " %6p" right-face1 'r)
+                        (powerline-raw "%3l" right-face2 'r)
+                        (powerline-raw ":" right-face2 'r)
+                        (powerline-raw "%c" right-face2 'r))))
+        (concat (powerline-render lhs)
+                (powerline-fill mid-face (powerline-width rhs))
+                (powerline-render rhs)))))))
