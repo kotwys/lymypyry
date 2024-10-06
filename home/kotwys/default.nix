@@ -25,6 +25,17 @@
 
   programs.bash.enable = true;
 
+  programs.starship = {
+    enable = true;
+    settings = {
+      battery.disabled = true;
+      format =           "┌ $all";
+      character.format = "└ $symbol ";
+      character.success_symbol = "[λ](bold green)";
+      character.error_symbol =   "[λ](bold red)";
+    };
+  };
+
   programs.git = {
     enable = true;
     ignores = [ "*.swp" ];
