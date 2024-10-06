@@ -1,3 +1,4 @@
+;; Base2Tone theme generator for Emacs   -*- lexical-binding: t -*-
 (require 'yaml)
 (require 'dash)
 (require 'color)
@@ -71,7 +72,7 @@
               '(window-divider ((t (:background ,(darken 0.2 a0)
                                     :foreground ,(darken 0.2 a0)))))
               '(vertical-border ((t (:inherit window-divider))))
-              '(tooltip ((t (:background ,d0 :foreground ,a0))))
+              '(tooltip ((t (:background ,a0 :foreground ,a7))))
               '(widget-inactive ((t (:foreground ,a2))))
               '(widget-field ((t (:background ,a0 :foreground ,c7))))
               '(help-key-binding ((t (:background ,a0 :foreground ,d0))))
@@ -146,11 +147,6 @@
 
               '(org-document-title ((t (:foreground ,d5 :weight bold))))
               '(org-footnote ((t (:foreground ,d7 :slant italic))))
-
-              '(neo-file-link-face ((t (:foreground ,a7))))
-              '(neo-dir-link-face ((t (:foreground ,d5))))
-              '(neo-expand-btn-face ((t (:foreground ,d7))))
-              '(neo-root-dir-face ((t (:foreground ,b2))))
 
 	      '(minibuffer-prompt ((t (:foreground ,d0))))
 	      '(show-paren-match ((t (:background ,a0 :foreground ,d4 :underline t))))
