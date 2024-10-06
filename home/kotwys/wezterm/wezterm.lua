@@ -65,8 +65,8 @@ config.font = wezterm.font_with_fallback {
   },
   'Meiryo UI' -- Japanese
 }
-config.font_size = 10
-config.line_height = 1.5
+config.font_size = 9.4
+config.line_height = 1.2
 config.underline_position = '-0.2cell'
 
 local bell_path = '/run/current-system/sw/share/sounds/freedesktop/stereo/bell.oga'
