@@ -55,6 +55,7 @@
 
   services.flatpak.enable = true;
   programs.fish.enable = true;
+  programs.zsh.enable = true;
   programs.ssh.askPassword = "";
 
   fonts = {
@@ -99,7 +100,7 @@
     createHome = true;
     isNormalUser = true;
     extraGroups = [ "wheel" "adbusers" ];
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     password = "welcome";
     description = ({
       "ja_JP.UTF-8" = "美瑰郎";

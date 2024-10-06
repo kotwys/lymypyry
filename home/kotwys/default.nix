@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./fish ./emacs ./wezterm ];
+  imports = [ ./fish ./zsh ./emacs ./wezterm ];
 
   programs.home-manager.enable = true;
 
