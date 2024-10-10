@@ -56,7 +56,7 @@
       hosts.valo.modules =
         [ ./hosts/valo.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop kde wine fcitx v2ray;
+          inherit (suites) uefi desktop kde wine fcitx v2ray virtualbox;
         });
 
       outputsBuilder = channels: {

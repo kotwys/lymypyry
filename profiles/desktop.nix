@@ -99,7 +99,7 @@
   users.users.kotwys = {
     createHome = true;
     isNormalUser = true;
-    extraGroups = [ "wheel" "adbusers" ];
+    extraGroups = [ "wheel" "adbusers" "vboxusers" ];
     shell = pkgs.zsh;
     password = "welcome";
     description = ({
