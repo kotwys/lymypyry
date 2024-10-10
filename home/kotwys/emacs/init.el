@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t -*-
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file)
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 (setq default-frame-alist `((width . 96)
                             (height . 24)
