@@ -69,14 +69,4 @@ config.font_size = 9.4
 config.line_height = 1.2
 config.underline_position = '-0.2cell'
 
-local bell_path = '/run/current-system/sw/share/sounds/freedesktop/stereo/bell.oga'
-wezterm.on('bell', function (window, pane)
-  -- Run audible bell because on Wayland it is not supported
-  wezterm.background_child_process {
-    'cvlc',
-    '--play-and-exit',
-    bell_path
-  }
-end)
-
 return config
