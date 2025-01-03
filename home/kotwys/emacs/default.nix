@@ -13,7 +13,7 @@ let
 
   treesit-default-grammars = [
     "bash" "c" "c-sharp" "clojure" "cmake" "cpp" "css" "elisp" "html"
-    "java" "javascript" "json" "kotlin" "lua" "nix" "python" "ruby" "rust"
+    "java" "javascript" "jsdoc" "json" "kotlin" "lua" "nix" "php" "python" "ruby" "rust"
     "toml" "tsx" "typescript" "yaml"
   ];
 

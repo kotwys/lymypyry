@@ -26,4 +26,5 @@
   (dolist (mode '("python" "ipython"))
     (add-to-list 'org-src-lang-modes (cons mode 'python-ts))))
 
+(setq-default tex-fontify-script nil)
 (add-hook 'tex-mode-hook 'electric-pair-local-mode)
