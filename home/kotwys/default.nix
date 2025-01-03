@@ -47,6 +47,11 @@
     };
   };
 
+  programs.tmux = {
+    enable = true;
+    shell = "${config.programs.zsh.package}/bin/zsh";
+  };
+
   home.file.".XCompose".source = ./XCompose;
 
   xdg.enable = true;
