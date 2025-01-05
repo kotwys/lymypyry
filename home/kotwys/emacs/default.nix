@@ -32,7 +32,7 @@ let
       ) ++ [tree-sitter-pascal]);
     }))
   ];
-  mkTheme = pkgs.callPackage ./base2tone.nix { emacs = emacs'; };
+  base2tone = pkgs.callPackage ../base2tone { emacs = emacs'; };
   siteLisp = {
     "pascal-ts-mode.el" = ./site-lisp/pascal-ts-mode.el;
     "ttl-mode.el" = pkgs.fetchurl {
@@ -49,11 +49,7 @@ in
 
   xdg.configFile = {
     "emacs/init.el".source = ./init.el;
-    "emacs/themes/base2tone-motel-theme.el".source =
-      mkTheme {
-        themeName = "motel";
-        sha256 = "0qqy924i6m00y1b3f4l1798a5bglyzdzhd46pjrfc36gdbddg640";
-      };
+    "emacs/themes/base2tone-motel-theme.el".source = base2tone.motel.emacs;
     "emacs/conf.d/".source = ./conf.d;
   } // (lib.concatMapAttrs (name: value: {
     "emacs/site-lisp/${name}".source = value;

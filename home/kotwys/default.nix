@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+  base2tone = pkgs.callPackage ./base2tone {
+    emacs = config.programs.emacs.package;
+  };
+in
 {
   imports = [ ./zsh ./emacs ];
 
@@ -56,6 +61,9 @@
 
   xdg.enable = true;
   fonts.fontconfig.enable = false;
+  xdg.dataFile."konsole/base2tone-motel.colorscheme" = {
+    source = base2tone.motel.konsole;
+  };
   xdg.configFile."fontconfig/conf.d/60-system-fonts.conf" = {
     source = ./60-system-fonts.conf;
   };
