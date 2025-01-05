@@ -37,6 +37,4 @@
   i18n.defaultLocale = lib.mkForce "ja_JP.UTF-8";
 
   services.xserver.videoDrivers = [ "amdgpu" ];
-
-  system.stateVersion = "21.05";
 }

@@ -45,7 +45,7 @@ in
     enable = true;
     ignores = [ "*.swp" ];
 
-    userName = "kotwys";
+    userName = "Kočyš Mikajlo";
     userEmail = "52920928+kotwys@users.noreply.github.com";
     extraConfig = {
       init.defaultBranch = "main";
@@ -67,6 +67,6 @@ in
   xdg.configFile."fontconfig/conf.d/60-system-fonts.conf" = {
     source = ./60-system-fonts.conf;
   };
-  
-  home.stateVersion = "21.05";
+
+  home.stateVersion = "24.11";
 }
