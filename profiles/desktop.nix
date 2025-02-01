@@ -109,5 +109,5 @@
 
   home-manager.users.kotwys = import ../home/kotwys;
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "21.05";
 }

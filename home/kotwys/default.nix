@@ -68,5 +68,5 @@ in
     source = ./60-system-fonts.conf;
   };
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "21.05";
 }
