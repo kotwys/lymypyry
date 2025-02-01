@@ -9,8 +9,9 @@
                             ,@default-frame-alist))
 
 (set-face-attribute 'default nil
-                    :font "JetBrains Mono"
-                    :height 105)
+                    :font "Code New Roman"
+                    :height 110)
+(setq-default line-spacing 4)
 (dolist (script '(kana han))
   (set-fontset-font t script "Meiryo UI"))
 
