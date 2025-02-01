@@ -17,7 +17,7 @@ let
     "toml" "tsx" "typescript" "yaml"
   ];
 
-  emacs' = lib.pipe pkgs.emacs-git [
+  emacs' = lib.pipe pkgs.emacs-pgtk [
     pkgs.emacsPackagesFor
     (x: x.emacsWithPackages (ps: builtins.attrValues {
       inherit (ps.melpaPackages)

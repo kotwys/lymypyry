@@ -9,6 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    kwin-effects-forceblur = {
+      url = "github:taj-ny/kwin-effects-forceblur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, utils, home-manager, emacs-overlay, ... }@inputs:
@@ -22,6 +26,10 @@
         input = nixpkgs;
         overlaysBuilder = _: [
           (_: _: { locals = self.packages.x86_64-linux; })
+          (_: _: {
+            kwin-effects-forceblur =
+              inputs.kwin-effects-forceblur.packages.x86_64-linux.default;
+          })
           emacs-overlay.overlay
         ];
       };

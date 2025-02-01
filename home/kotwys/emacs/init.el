@@ -3,8 +3,9 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(setq default-frame-alist `((width . 96)
-                            (height . 24)
+(setq default-frame-alist `((width            . 96)
+                            (height           . 24)
+                            (alpha-background . 0.85)
                             ,@default-frame-alist))
 
 (set-face-attribute 'default nil
