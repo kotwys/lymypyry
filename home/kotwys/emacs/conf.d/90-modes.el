@@ -8,6 +8,9 @@
   :custom-face
   (clojure-keyword-face ((t (:slant italic :inherit font-lock-constant-face)))))
 
+(use-package cider
+  :custom (cider-xref-fn-depth 90))
+
 (use-package markdown-mode :mode "\\.md\\'")
 (use-package nix-mode :mode "\\.nix\\'")
 (use-package pascal-ts-mode :mode "\\.pas\\'")
