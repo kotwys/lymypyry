@@ -6,6 +6,8 @@
   boot.kernelModules = [ "amdgpu" "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   boot.initrd.luks.devices.crypted = {
     device = "/dev/disk/by-uuid/317a8f2e-f378-416a-9555-6e7b2a7d74c3";
     preLVM = true;
