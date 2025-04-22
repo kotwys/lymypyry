@@ -67,6 +67,9 @@ in
   xdg.configFile."fontconfig/conf.d/60-system-fonts.conf" = {
     source = ./60-system-fonts.conf;
   };
+  xdg.configFile."fontconfig/conf.d/20-no-embedded.conf" = {
+    source = ./20-no-embedded.conf;
+  };
 
   home.stateVersion = "21.05";
 }

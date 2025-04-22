@@ -115,6 +115,7 @@
   (setq-default
    mode-line-format
    '("%e"
+     (:propertize "\u200b" display ((height 1.2)))
      (:eval
       (let* ((active      (powerline-selected-window-active))
              (mode-face  '(:background "#e24f32" :foreground "#242323"))
