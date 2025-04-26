@@ -64,11 +64,10 @@ in
   xdg.dataFile."konsole/base2tone-motel.colorscheme" = {
     source = base2tone.motel.konsole;
   };
-  xdg.configFile."fontconfig/conf.d/60-system-fonts.conf" = {
-    source = ./60-system-fonts.conf;
-  };
-  xdg.configFile."fontconfig/conf.d/20-no-embedded.conf" = {
-    source = ./20-no-embedded.conf;
+
+  xdg.configFile = {
+    "fontconfig/conf.d/20-no-embedded.conf".source = ./20-no-embedded.conf;
+    "fontconfig/conf.d/60-system-fonts.conf".source = ./60-system-fonts.conf;
   };
 
   home.stateVersion = "21.05";
