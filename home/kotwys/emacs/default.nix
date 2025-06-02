@@ -12,8 +12,8 @@ let
   };
 
   treesit-default-grammars = [
-    "bash" "c" "c-sharp" "clojure" "cmake" "cpp" "css" "elisp" "html"
-    "java" "javascript" "jsdoc" "json" "kotlin" "lua" "nix" "php" "python" "ruby" "rust"
+    "bash" "c" "clojure" "cmake" "cpp" "css" "elisp" "java" "javascript"
+    "jsdoc" "json" "kotlin" "lua" "nix" "php" "python" "ruby" "rust"
     "toml" "tsx" "typescript" "yaml"
   ];
 
