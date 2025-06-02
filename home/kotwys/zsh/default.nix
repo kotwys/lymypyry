@@ -4,7 +4,7 @@
   programs.zsh = {
     enable = true;
     defaultKeymap = "emacs";
-    initExtra = ''
+    initContent = ''
       setopt auto_pushd
       setopt pushd_ignore_dups
     '';
