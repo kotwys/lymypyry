@@ -31,3 +31,5 @@
 
 (setq-default tex-fontify-script nil)
 (add-hook 'tex-mode-hook 'electric-pair-local-mode)
+
+(setq-default dired-dwim-target t)
