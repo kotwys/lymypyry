@@ -2,10 +2,10 @@
   description = "My NixOS config, modules and packages.";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/1.5.0";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus/v1.5.1";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kwin-effects-forceblur = {
