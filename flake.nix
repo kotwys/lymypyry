@@ -8,14 +8,13 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, utils, home-manager, emacs-overlay, ... }@inputs:
+  outputs = { self, nixpkgs, utils, home-manager, ... }@inputs:
     let
       suites = import ./suites.nix { inherit utils; };
     in utils.lib.mkFlake {
@@ -30,7 +29,6 @@
             kwin-effects-forceblur =
               inputs.kwin-effects-forceblur.packages.x86_64-linux.default;
           })
-          emacs-overlay.overlay
         ];
       };
 
