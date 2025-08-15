@@ -86,7 +86,8 @@
     vlc
     wget
     git
-    helix
+    vim
+    file
   ];
 
   programs.gnupg.agent = {
