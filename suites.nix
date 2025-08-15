@@ -3,6 +3,7 @@
 utils.lib.exportModules [
   ./modules/extra-xkb-options.nix
 
+  ./profiles/bluetooth.nix
   ./profiles/desktop.nix
   ./profiles/fcitx.nix
   ./profiles/gaming.nix

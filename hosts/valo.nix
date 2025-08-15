@@ -38,6 +38,5 @@
   i18n.defaultLocale = lib.mkForce "ja_JP.UTF-8";
 
   hardware.cpu.amd.updateMicrocode = true;
-  hardware.bluetooth.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 }
