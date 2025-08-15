@@ -66,8 +66,8 @@ in
   };
 
   xdg.configFile = {
-    "fontconfig/conf.d/20-no-embedded.conf".source = ./20-no-embedded.conf;
     "fontconfig/conf.d/60-system-fonts.conf".source = ./60-system-fonts.conf;
+    "fontconfig/conf.d/70-ibm-plex.conf".source = ./70-ibm-plex.conf;
   };
 
   home.stateVersion = "21.05";

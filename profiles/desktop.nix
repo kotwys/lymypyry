@@ -65,18 +65,19 @@
       defaultFonts = {
         sansSerif = [ "Noto Sans" "DejaVu Sans" "Noto Color Emoji" ];
         serif = [ "Noto Serif" "DejaVu Serif" "Noto Color Emoji" ];
-        monospace = [ "Cascadia Code" "Noto Color Emoji" ];
+        monospace = [ "DejaVu Mono" "Noto Color Emoji" ];
       };
     };
     packages = with pkgs; [
       corefonts
       open-sans
+      ubuntu_font_family
       noto-fonts
       noto-fonts-emoji
       noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      ubuntu_font_family
-      jetbrains-mono
+      source-han-sans
+      source-han-serif
+      ibm-plex
     ];
   };
 
