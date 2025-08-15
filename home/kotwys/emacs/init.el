@@ -52,6 +52,8 @@
           (lambda ()
             (setq tab-width 2)))
 
+(editorconfig-mode)
+
 (add-to-list 'load-path (concat user-emacs-directory "site-lisp/"))
 (add-to-list 'custom-theme-load-path (concat user-emacs-directory "themes/"))
 

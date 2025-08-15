@@ -90,6 +90,15 @@
              :foreground ,(css b2t:D0)))))
       '(completions-common-part
         ((t (:foreground ,(css b2t:D7)))))
+      '(fixed-pitch-serif ((t nil)))
+      '(mode-line
+        ((t (:background "grey75"
+             :foreground "black"))))
+      '(mode-line-inactive
+        ((t (:inherit mode-line
+             :background "grey30"
+             :foreground "grey80"
+             :weight light))))
       '(meow-position-highlight-number
         ((t (:background ,(css b2t:A1)
              :foreground ,(css b2t:D2)))))
@@ -225,6 +234,8 @@
         ((t (:inherit magit-section-heading
              :background ,(css b2t:A1)))))
 
+      '(eglot-highlight-symbol-face
+        ((t (:background ,(css b2t:A1)))))
       '(company-tooltip
         ((t (:background ,(css b2t:A0)
              :foreground ,(css b2t:C5)))))

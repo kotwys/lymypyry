@@ -21,10 +21,10 @@ let
     pkgs.emacsPackagesFor
     (x: x.emacsWithPackages (ps: builtins.attrValues {
       inherit (ps.melpaPackages)
-        meow powerline magit yaml company lsp-mode lsp-ui meson-mode
+        meow powerline magit yaml company lsp-mode lsp-ui yaml-mode
         flycheck clojure-mode cider rust-mode nix-mode markdown-mode
-        haskell-mode treesit-auto bqn-mode git-gutter htmlize
-        popwin kotlin-mode atomic-chrome smartparens ligature;
+        haskell-mode treesit-auto git-gutter htmlize eldoc-box
+        popwin kotlin-mode atomic-chrome smartparens olivetti;
       treesit = ps.treesit-grammars.with-grammars (grammars: (
         lib.attrsets.attrVals
           (map (x: "tree-sitter-${x}") treesit-default-grammars)

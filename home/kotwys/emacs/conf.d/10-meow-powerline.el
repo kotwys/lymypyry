@@ -6,13 +6,13 @@
 
   :functions
   meow-global-mode
-  meow-motion-overwrite-define-key
+  meow-motion-define-key
   meow-leader-define-key
   meow-normal-define-key
 
   :config
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
-  (meow-motion-overwrite-define-key
+  (meow-motion-define-key
    '("j" . meow-next)
    '("k" . meow-prev)
    '("<escape>" . ignore))
@@ -94,12 +94,19 @@
    '("<escape>" . ignore))
   (meow-global-mode 1))
 
-(defconst my/meow-state-names
+(defconst user--meow-state-name-alist
   '((insert . "入力")
     (normal . "通常")
     (motion . "動き")
     (keypad . "キー")
     (beacon . "狼火")))
+
+(defun user--buffer-status ()
+  (let ((is-modified (buffer-modified-p)))
+    (cond
+     (buffer-read-only "r")
+     ((and is-modified (not (eq 'autosaved is-modified))) "+")
+     (t nil))))
 
 (use-package powerline
   :demand t
@@ -109,7 +116,9 @@
   :config
   (defun powerline-state (&optional face pad)
     (powerline-raw
-     (concat (alist-get meow--current-state my/meow-state-names "不明") " ")
+     (concat
+      (alist-get meow--current-state user--meow-state-name-alist "不明")
+      " ")
      face pad))
 
   (setq-default
@@ -118,13 +127,17 @@
      (:propertize "\u200b" display ((height 1.2)))
      (:eval
       (let* ((active      (powerline-selected-window-active))
+             (status      (user--buffer-status))
              (mode-face  '(:background "#e24f32" :foreground "#242323"))
              (mid-face    (if active 'powerline-active1 'powerline-inactive1))
              (right-face1 (if active 'powerline-active2 'powerline-inactive2))
              (right-face2 (if active 'powerline-active0 'powerline-inactive0))
              (lhs         (list (when active
                                   (powerline-state mode-face 'l))
-                                (powerline-buffer-id mid-face 'r)))
+                                (powerline-buffer-id mid-face)
+                                (when status
+                                  (powerline-raw (concat "[" status "]")
+                                                 mid-face 'l))))
              (rhs         (list (powerline-major-mode mid-face 'l)
                                 (powerline-raw " " mid-face 'l)
                                 (powerline-minor-modes mid-face 'l)

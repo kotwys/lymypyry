@@ -8,7 +8,7 @@
   global-treesit-auto-mode
 
   :config
-  (dolist (lang '(html c-sharp))
+  (dolist (lang '(c-sharp html yaml))
     (delete lang treesit-auto-langs))
   (treesit-auto-add-to-auto-mode-alist 'all)
   (global-treesit-auto-mode))

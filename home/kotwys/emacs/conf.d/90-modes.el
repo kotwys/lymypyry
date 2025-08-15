@@ -33,3 +33,7 @@
 (add-hook 'tex-mode-hook 'electric-pair-local-mode)
 
 (setq-default dired-dwim-target t)
+
+(use-package yaml
+  :mode
+  (("\\.ya?ml\\'" . yaml-mode)))
