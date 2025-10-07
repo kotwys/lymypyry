@@ -78,6 +78,7 @@
       source-han-sans
       source-han-serif
       ibm-plex
+      plemoljp
     ];
   };
 
