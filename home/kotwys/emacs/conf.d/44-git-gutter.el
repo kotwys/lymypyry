@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t -*-
 (use-package git-gutter
   :hook (after-init . global-git-gutter-mode)
+  :diminish git-gutter-mode
   :custom
   (git-gutter:modified-sign "▏")
   (git-gutter:added-sign    "▏")

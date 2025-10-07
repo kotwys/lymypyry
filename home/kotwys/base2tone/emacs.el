@@ -97,8 +97,7 @@
       '(mode-line-inactive
         ((t (:inherit mode-line
              :background "grey30"
-             :foreground "grey80"
-             :weight light))))
+             :foreground "grey80"))))
       '(meow-position-highlight-number
         ((t (:background ,(css b2t:A1)
              :foreground ,(css b2t:D2)))))

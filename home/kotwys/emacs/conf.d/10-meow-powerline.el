@@ -10,6 +10,14 @@
   meow-leader-define-key
   meow-normal-define-key
 
+  :diminish
+  meow-insert-mode
+  meow-normal-mode
+  meow-beacon-mode
+  meow-keypad-mode
+  meow-motion-mode
+  meow-beacon-mode
+
   :config
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
   (meow-motion-define-key
@@ -47,7 +55,6 @@
    '("-" . negative-argument)
    '(";" . meow-reverse)
    '("," . meow-inner-of-thing)
-   '("." . meow-bounds-of-thing)
    '("[" . meow-beginning-of-thing)
    '("]" . meow-end-of-thing)
    '("a" . meow-append)
@@ -75,7 +82,6 @@
    '("o" . meow-open-below)
    '("O" . meow-open-above)
    '("p" . meow-yank)
-   '("Q" . meow-goto-line)
    '("r" . meow-replace)
    '("R" . meow-swap-grab)
    '("s" . meow-kill)
@@ -95,7 +101,7 @@
   (meow-global-mode 1))
 
 (defconst user--meow-state-name-alist
-  '((insert . "入力")
+  '((insert . "挿入")
     (normal . "通常")
     (motion . "動き")
     (keypad . "キー")
@@ -124,11 +130,12 @@
   (setq-default
    mode-line-format
    '("%e"
-     (:propertize "\u200b" display ((height 1.2)))
      (:eval
       (let* ((active      (powerline-selected-window-active))
              (status      (user--buffer-status))
-             (mode-face  '(:background "#e24f32" :foreground "#242323"))
+             (mode-face  '(:background "#e24f32"
+                           :foreground "#242323"
+                           :weight semi-bold))
              (mid-face    (if active 'powerline-active1 'powerline-inactive1))
              (right-face1 (if active 'powerline-active2 'powerline-inactive2))
              (right-face2 (if active 'powerline-active0 'powerline-inactive0))
