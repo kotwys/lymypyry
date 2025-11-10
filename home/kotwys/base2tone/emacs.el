@@ -204,6 +204,9 @@
       '(sh-heredoc
         ((t (:foreground ,(css b2t:D5)))))
 
+      '(highlight-indent-guides-character-face
+        ((t (:foreground ,(css b2t:A2)))))
+
       '(header-line
         ((t (:background ,(css b2t:A1)
              :foreground ,(css b2t:D5)
