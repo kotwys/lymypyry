@@ -58,6 +58,16 @@
   programs.zsh.enable = true;
   programs.ssh.askPassword = "";
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = builtins.attrValues {
+      inherit (pkgs)
+        zlib zstd curl openssl attr libssh bzip2 libxml2 acl libsodium util-linux
+        xz systemd portaudio libGL glib;
+      inherit (pkgs.stdenv.cc) cc;
+    };
+  };
+
   fonts = {
     fontconfig = {
       enable = true;
