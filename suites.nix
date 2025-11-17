@@ -11,6 +11,7 @@ utils.lib.exportModules [
   ./profiles/grub.nix
   ./profiles/ibus.nix
   ./profiles/kde.nix
+  ./profiles/mihomo.nix
   ./profiles/uefi.nix
   ./profiles/v2ray.nix
   ./profiles/virtualbox.nix

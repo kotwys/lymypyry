@@ -50,7 +50,7 @@
       hosts.kotwys-pc.modules =
         [ ./hosts/kotwys-pc.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gaming kde fcitx v2ray virtualbox bluetooth;
+          inherit (suites) uefi desktop gaming kde fcitx mihomo virtualbox bluetooth;
         });
 
       hosts.kotwys-lap.modules =
@@ -62,7 +62,7 @@
       hosts.valo.modules =
         [ ./hosts/valo.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop kde wine fcitx v2ray virtualbox bluetooth;
+          inherit (suites) uefi desktop kde fcitx virtualbox bluetooth mihomo;
         });
 
       outputsBuilder = channels: {

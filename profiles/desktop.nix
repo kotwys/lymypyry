@@ -21,8 +21,6 @@
 
   programs.kdeconnect.enable = true;
 
-  # Allow tunnelling all traffic to Wireguard
-  networking.firewall.checkReversePath = "loose";
   networking.hosts = {
     # Please support Ukraine
     "::1" = [ "redirectrussia.org" ];
