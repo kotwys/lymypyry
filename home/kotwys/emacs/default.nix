@@ -25,7 +25,7 @@ let
         flycheck clojure-mode cider rust-mode nix-mode markdown-mode
         haskell-mode treesit-auto git-gutter htmlize eldoc-box
         popwin kotlin-mode atomic-chrome smartparens olivetti
-        diminish highlight-indent-guides;
+        diminish highlight-indent-guides neotree;
       treesit = ps.treesit-grammars.with-grammars (grammars: (
         lib.attrsets.attrVals
           (map (x: "tree-sitter-${x}") treesit-default-grammars)
