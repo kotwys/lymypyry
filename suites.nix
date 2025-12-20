@@ -16,6 +16,7 @@ utils.lib.exportModules [
   ./profiles/v2ray.nix
   ./profiles/virtualbox.nix
   ./profiles/wine.nix
+  ./profiles/zapret.nix
 ] // {
   hm = utils.lib.exportModules [
     ./modules/hm/vim-plug.nix
