@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     kwin-effects-forceblur = {
-      url = "github:taj-ny/kwin-effects-forceblur";
+      url = "github:taj-ny/kwin-effects-forceblur/v1.3.6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -50,7 +50,7 @@
       hosts.kotwys-pc.modules =
         [ ./hosts/kotwys-pc.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gaming kde fcitx mihomo virtualbox bluetooth zapret;
+          inherit (suites) uefi desktop gaming kde fcitx mihomo bluetooth zapret;
         });
 
       hosts.kotwys-lap.modules =
