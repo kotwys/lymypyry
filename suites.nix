@@ -14,6 +14,7 @@ utils.lib.exportModules [
   ./profiles/mihomo.nix
   ./profiles/uefi.nix
   ./profiles/v2ray.nix
+  ./profiles/virtmanager.nix
   ./profiles/virtualbox.nix
   ./profiles/wine.nix
   ./profiles/zapret.nix

@@ -50,7 +50,7 @@
       hosts.kotwys-pc.modules =
         [ ./hosts/kotwys-pc.nix ]
         ++ (builtins.attrValues {
-          inherit (suites) uefi desktop gaming kde fcitx mihomo bluetooth zapret;
+          inherit (suites) uefi desktop gaming kde fcitx mihomo bluetooth zapret virtmanager;
         });
 
       hosts.kotwys-lap.modules =
